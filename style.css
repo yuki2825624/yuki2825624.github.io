@@ -30,6 +30,13 @@ a {
     padding: 20px;
 }
 
+.intro {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
 .menu-list {
     position: fixed;
     content: "";
@@ -104,11 +111,4 @@ a {
 #menu-button-check:checked ~ .menu-list {
     left: 0;
     transition: all 0.3s ease;
-}
-
-.intro {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    text-align: center;
 }
