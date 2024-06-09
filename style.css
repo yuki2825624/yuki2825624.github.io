@@ -1,0 +1,102 @@
+@font-face {
+    font-family: "KiwiMaru";
+    src: url("fonts/KiwiMaru-Regular.ttf") format("truetype");
+}
+
+body {
+    font-family: "KiwiMaru", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.typing {
+    font-family: "KiwiMaru", sans-serif;
+}
+
+.banner {
+    background-color: #adff2f;
+    color: #000;
+    text-align: center;
+    padding: 20px;
+}
+
+.menu-list {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #7ebe42;
+    color: #000;
+    z-index: 99;
+    transition: all 0.3s ease;
+}
+
+.menu-list ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.menu-list ul li a {
+    color: #000;
+}
+
+.menu-list ul li a:hover {
+    color: #0000ff;
+}
+
+.menu-button {
+    position: fixed;
+    display: flex;
+    padding: 30px 40px;
+    top: 10px;
+    left: 20px;
+    cursor: pointer;
+    justify-content: center;
+    z-index: 100;
+}
+
+.menu-button span,
+.menu-button span:before,
+.menu-button span:after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 25px;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.menu-button span:before {
+    bottom: 8px;
+}
+
+.menu-button span:after {
+    top: 8px;
+}
+
+#menu-button-check {
+    display: none;
+}
+
+#menu-button-check:checked ~ .menu-button span {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#menu-button-check:checked ~ .menu-button span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+    transition: all 0.2s ease;
+}
+
+#menu-button-check:checked ~ .menu-button span::after {
+    top: 0;
+    transform: rotate(-45deg);
+    transition: all 0.2s ease;
+}
+
+#menu-button-check:checked ~ .menu-list {
+    left: 0;
+    transition: all 0.3s ease;
+}
