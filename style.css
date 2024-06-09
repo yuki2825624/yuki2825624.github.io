@@ -9,6 +9,16 @@ body {
     padding: 0;
 }
 
+img {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+}
+
+a {
+    color: #000;
+}
+
 .typing {
     font-family: "KiwiMaru", sans-serif;
 }
@@ -28,7 +38,6 @@ body {
     width: 250px;
     height: 100%;
     background-color: #7ebe42;
-    color: #000;
     z-index: 99;
     transition: all 0.3s ease;
 }
@@ -38,12 +47,8 @@ body {
     padding: 20px;
 }
 
-.menu-list ul li a {
-    color: #000;
-}
-
 .menu-list ul li a:hover {
-    color: #0000ff;
+    color: #d1d1d1;
 }
 
 .menu-button {
@@ -99,4 +104,11 @@ body {
 #menu-button-check:checked ~ .menu-list {
     left: 0;
     transition: all 0.3s ease;
+}
+
+.intro {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
 }
