@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     for (const query of document.querySelectorAll(".typing")) {
-        const text = query.getAttribute("data-text");
+        const text = query.getAttribute("data-text").replace(/\;(\s+)?/, ";");
         let index = 0;
         const id = setInterval(() => {
             if (index < text.length) {
