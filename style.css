@@ -15,14 +15,6 @@ img {
     height: auto;
 }
 
-a {
-    color: #000;
-}
-
-.typing {
-    font-family: "KiwiMaru", sans-serif;
-}
-
 .banner {
     background-color: #adff2f;
     color: #000;
@@ -35,6 +27,29 @@ a {
     margin: 20px auto;
     padding: 20px;
     text-align: center;
+}
+
+.links ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.links ul a {
+    color: #5555ee;
+}
+
+.links ul a:hover {
+    color: #0000ff;
+}
+
+.box {
+    padding: 40px 10px;
+    margin: 10px 10px;
+    font-weight: bold;
+    color: #98e5d8;
+    background: #f5f5f5;
+    border: solid 2px #a2a2a2;
+    border-radius: 10px;/*角の丸み*/
 }
 
 .menu-list {
@@ -54,8 +69,17 @@ a {
     padding: 20px;
 }
 
-.menu-list ul li a:hover {
+.menu-list ul a {
+    color: #000;
+}
+
+.menu-list ul a:hover {
     color: #d1d1d1;
+}
+
+.menu-list ul p {
+    position: fixed;
+    bottom: 0;
 }
 
 .menu-button {
@@ -76,7 +100,7 @@ a {
     content: "";
     height: 2px;
     width: 25px;
-    background-color: #ffffff;
+    background-color: #000;
     transition: all 0.2s ease;
 }
 
