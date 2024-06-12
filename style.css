@@ -18,6 +18,19 @@ main {
     padding: 10px 20px 0;
 }
 
+/* .canvas {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fefefe;
+} */
+
+/* .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+} */
+
 .banner {
     background-color: #adff2f;
     color: #000;
@@ -37,15 +50,16 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    /* background-color: #ffffff; */
 }
 
 .links li {
     list-style: none;
     overflow: hidden;
     width: 300px;
+    background-color: #fdfdfd;
     border: 1px solid #f0f0f0;
     border-radius: 10px;
+    margin: 0 0 20px 0;
 }
 
 .links li .thumbnail {
@@ -163,5 +177,6 @@ main {
 #footer {
     text-align: center;
     background: #d1d1d1;
-    padding: 40px 40px;
+    padding: 40px 0;
+    bottom: 0;
 }

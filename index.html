@@ -10,78 +10,81 @@
     <meta property="og:url" content="https://yuki2825624.github.io/">
     <meta property="og:image" content="https://yuki2825624.github.io/img/icon.png">
     <script src="./script.js"></script>
+    <script src="./draw.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="banner">
-        <h1 class="typing" data-text="Hi There"></h1>
+    <!-- <canvas class="canvas"></canvas> -->
+    <div class="overlay">
+        <div class="banner">
+            <h1 class="typing" data-text="Hi There"></h1>
+        </div>
+        <div>
+            <input type="checkbox" id="menu-button-check">
+            <label for="menu-button-check" class="menu-button" style="height: 0%; width: 0%;">
+                <h6>MENU</h6>
+                <span></span>
+            </label>
+            <div class="menu-list">
+                <ul>
+                    <li><a href="./index.html">Home</a></li><br>
+                    <li><a href="./index.html">Test</a></li><br>
+                </ul>
+                <p id="license">© yuki2825624</p>
+            </div>
+        </div>
+        <main>
+            <div class="intro">
+                <img src="img/icon.png" alt="https://seiga.nicovideo.jp/tag/%E7%81%AB%E7%84%94%E7%8C%AB%E7%87%90%20?page=80&target=illust_all" loading="lazy">
+                <h2 class="typing" data-text="yuki2825624"></h2>
+                <p class="typing" data-text="I'm yuki; Minecraft Developer / TypeScript / Python / C++ / C#"></p>
+                <br>
+                <p><b class="typing" data-text="- Discord Status -"></b></p>
+                <img src="https://discord-readme-badge.vercel.app/api?id=964310223235993690" alt="Discord Status" loading="lazy">
+            </div>
+            <h2>- Links</h2>
+            <div class="links">
+                <li>
+                    <div class="thumbnail">
+                        <a href="https://twitter.com/yuki2825624" target="_blank">
+                            <img src="img/x.png" alt="@yuki2825624" loading="lazy"></img>
+                        </a>
+                    </div>
+                    <div class="content">
+                        <a href="https://twitter.com/yuki2825624">Twitter(X) - @yuki2825624</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="thumbnail">
+                        <a href="https://github.com/yuki2825624" target="_blank">
+                            <img src="img/github.png" alt="yuki2825624" loading="lazy"></img>
+                        </a>
+                    </div>
+                    <div class="content">
+                        <a href="https://github.com/yuki2825624">Github - yuki2825624</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="thumbnail">
+                        <a href="https://steamcommunity.com/profiles/76561199384039065" target="_blank">
+                            <img src="img/steam.png" alt="yuki2825624" title="©2024 Valve Corporation. Steam及びSteamロゴは、米国及びまたはその他の国のValve Corporationの商標及びまたは登録商標です。 " loading="lazy"></img>
+                        </a>
+                    </div>
+                    <div class="content">
+                        <a href="https://steamcommunity.com/profiles/76561199384039065">Steam - yuki2825624</a>
+                    </div>
+                </li><li>
+                    <div class="thumbnail">
+                        <a href="https://qiita.com/yuki2825624" target="_blank">
+                            <img src="img/qiita.png" alt="yuki2825624" loading="lazy"></img>
+                        </a>
+                    </div>
+                    <div class="content">
+                        <a href="https://qiita.com/yuki2825624">Qiita - yuki2825624</a>
+                    </div>
+                </li>
+            </div>
+        </main>
+        <footer id="footer">© yuki2825624</footer>
     </div>
-    <div>
-        <input type="checkbox" id="menu-button-check">
-        <label for="menu-button-check" class="menu-button" style="height: 0%; width: 0%;">
-            <h6>MENU</h6>
-            <span></span>
-        </label>
-        <div class="menu-list">
-            <ul>
-                <li><a href="./index.html">Home</a></li><br>
-                <li><a href="./index.html">Test</a></li><br>
-            </ul>
-            <p id="license">© yuki2825624</p>
-        </div>
-    </div>
-    <main>   
-        <div class="intro">
-            <img src="img/icon.png" alt="https://seiga.nicovideo.jp/tag/%E7%81%AB%E7%84%94%E7%8C%AB%E7%87%90%20?page=80&target=illust_all" loading="lazy">
-            <h2 class="typing" data-text="yuki2825624"></h2>
-            <p class="typing" data-text="I'm yuki; Minecraft Developer / TypeScript / Python / C++ / C#"></p>
-            <br>
-            <p><b class="typing" data-text="- Discord Status -"></b></p>
-            <img src="https://discord-readme-badge.vercel.app/api?id=964310223235993690" alt="Discord Status" loading="lazy">
-        </div>
-        <h2>- Links</h2>
-        <div class="links">
-            <li>
-                <div class="thumbnail">
-                    <a href="https://twitter.com/yuki2825624" target="_blank">
-                        <img src="img/x.png" alt="@yuki2825624" loading="lazy"></img>
-                    </a>
-                </div>
-                <div class="content">
-                    <a href="https://twitter.com/yuki2825624">Twitter(X) - @yuki2825624</a>
-                </div>
-            </li>
-            <li>
-                <div class="thumbnail">
-                    <a href="https://github.com/yuki2825624" target="_blank">
-                        <img src="img/github.png" alt="yuki2825624" loading="lazy"></img>
-                    </a>
-                </div>
-                <div class="content">
-                    <a href="https://github.com/yuki2825624">Github - yuki2825624</a>
-                </div>
-            </li>
-            <li>
-                <div class="thumbnail">
-                    <a href="https://steamcommunity.com/profiles/76561199384039065" target="_blank">
-                        <img src="img/steam.png" alt="yuki2825624" title="©2024 Valve Corporation. Steam及びSteamロゴは、米国及びまたはその他の国のValve Corporationの商標及びまたは登録商標です。 " loading="lazy"></img>
-                    </a>
-                </div>
-                <div class="content">
-                    <a href="https://steamcommunity.com/profiles/76561199384039065">Steam - yuki2825624</a>
-                </div>
-            </li><li>
-                <div class="thumbnail">
-                    <a href="https://qiita.com/yuki2825624" target="_blank">
-                        <img src="img/qiita.png" alt="yuki2825624" loading="lazy"></img>
-                    </a>
-                </div>
-                <div class="content">
-                    <a href="https://qiita.com/yuki2825624">Qiita - yuki2825624</a>
-                </div>
-            </li>
-        </div>
-        <p class="typing" data-text=""></p>
-    </main>
-    <footer id="footer">© yuki2825624</footer>
 </body>
