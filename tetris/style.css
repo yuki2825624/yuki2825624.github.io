@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #222222;
+    overflow: hidden;
+}
+
+canvas {
+    position: fixed;
+    background: #f9f9f9;
+}
+
+@font-face {
+    font-family: "tetris";
+    src: url("./fonts/tetris.ttf") format("truetype");
+} 
