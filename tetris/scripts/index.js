@@ -391,6 +391,10 @@ async function MultiGameMenu() {
                 const { holding } = packet;
                 if (holding) target.hold.holding = new Mino(target, holding);
             }
+            if ("score" in packet) {
+                const { score } = packet;
+                target.score.value = score;
+            }
             menu.show();
         }
 
@@ -415,7 +419,8 @@ async function MultiGameMenu() {
         const data = {
             tiles: game.field.tiles.map((lines) => lines.map((tile) => ({ hex: tile.hex, state: tile.state }))),
             stack: game.stack,
-            holding: game.hold.holding?.shape
+            holding: game.hold.holding?.shape,
+            score: game.score.value
         };
         achex.send("hub", data);
     }
