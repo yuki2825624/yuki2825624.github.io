@@ -2,6 +2,7 @@
 
 
 const isMobile = /Mobile/i.test(navigator.userAgent);
+const isOnline = navigator.onLine;
 
 const variable = {};
 
@@ -17,10 +18,10 @@ class Main {
 
     /** @param {Button[]} buttons */
     static set buttons(buttons) {
-        this.#buttons = buttons;
         for (const button of buttons) {
             button.display(button);
         }
+        this.#buttons = buttons;
     }
 
     static WIDTH = 1920;
@@ -103,7 +104,7 @@ class Main {
 
     static len(m) {
         if (m.startsWith("w")) return this.width(+m.slice(1));
-        if (m.startsWith("h")) return this.height(+m.slice(1)); 
+        if (m.startsWith("h")) return this.height(+m.slice(1));
         return NaN;
     }
 
@@ -247,13 +248,39 @@ async function SoloGameMenu() {
                         setTimeout(MainMenu, 10);
                     })
             ];
-            
+
             Main.game.display();
         });
     menu.show();
 }
 
-function MultiSelectionMenu() {
+async function fetchHubs(timeout = 1000) {
+    if (achex.hub) await achex.disconnect();
+    const hubs = new Map();
+
+    await achex.connect("matching");
+
+    await new Promise((resolve) => {
+        const callback = achex.on("data", (data) => {
+            if ("id" in data && !hubs.has(data.id)) hubs.set(data.id, data);
+            console.log(data);
+        });
+
+        setTimeout(() => {
+            achex.off("data", callback);
+            resolve(null);
+        }, timeout);
+    });
+
+    await achex.disconnect();
+
+    return [...hubs.values()];
+}
+
+async function MultiSelectionMenu() {
+    const i = setInterval(LoadingMenu, 50);
+    const hubs = await fetchHubs(1000);
+    clearInterval(i);
     const menu = new Menu()
         .onDisplay(() => {
             const { ctx } = Main;
@@ -279,18 +306,7 @@ function MultiSelectionMenu() {
                         ctx.fillStyle = "#ffff00";
                         ctx.fillText("RELOAD", Main.width(61.5), Main.width(6.5));
                     })
-                    .onPush(async () => {
-                        const i = setInterval(LoadingMenu, 50);
-
-                        await new Promise((resolve) => {
-                            setTimeout(() => {
-                                resolve(null);
-                            }, 500);
-                        });
-
-                        clearInterval(i);
-                        MultiSelectionMenu();
-                    }),
+                    .onPush(MultiSelectionMenu),
                 new Button({ x: Main.width(80), y: Main.height(3), w: Main.width(17), h: Main.width(6) })
                     .onDisplay((button) => {
                         const { x, y, w, h } = button.data;
@@ -303,26 +319,35 @@ function MultiSelectionMenu() {
                         ctx.fillText("+ NEW", Main.width(81.5), Main.width(6.5));
                     })
                     .onPush(async () => {
-                        const i = setInterval(LoadingMenu, 50);
-                      
-                        // await new Promise(async (resolve) => {
-                        //     await achex.connect(String(achex.id), (data) => {
-                        //         if ("joinedHub" in data) {
-                        //             resolve(null);
-                        //         }
-                        //         console.log("hub:", data);
-                        //     });
-                        // })
-
-                        clearInterval(i);
-                        MultiSelectionMenu();
+                        await achex.connect("matching");
+                        const ids = [
+                            setInterval(() => {
+                                LoadingMenu(() => {
+                                    ctx.fillStyle = "#ffffff";
+                                    ctx.font = `${Main.width(4)}px tetris`;
+                                    ctx.fillText(`Room Session - ${achex.session?.id}`, Main.width(5), Main.height(20));
+                                });
+                            }, 50),
+                            setInterval(() => {
+                                achex.request({ "toH": "matching", "id": achex.id, "session": achex.session?.id });
+                                console.log("request to matching hub");
+                            }, 200)
+                        ];
+                        const callback = achex.on("data", (data) => {
+                            if ("match" in data && data.match) {
+                                ids.forEach(clearInterval);
+                                achex.off("data", callback);
+                                achex.request({ to: data.FROM, match: true });
+                                MultiGameMenu(achex.id);
+                            }
+                        });
                     })
-            ]
+            ];
 
-            const count = 1;
-            for (let i = 0; i < count; i++) {
+            for (let i = 0; i < hubs.length; i++) {
+                const hub = hubs[i];
                 buttons.push(
-                    new Button({ x: Main.width(5), y: Main.height(15), w: Main.width(40), h: Main.width(4) })
+                    new Button({ x: Main.width(5), y: Main.height(15 + i * 7), w: Main.width(40), h: Main.width(4) })
                         .onDisplay((button) => {
                             const { x, y, w, h } = button.data;
 
@@ -343,27 +368,20 @@ function MultiSelectionMenu() {
 
                             ctx.font = `${Main.width(3)}px tetris`;
                             ctx.fillStyle = "#ffffff";
-                            ctx.fillText("hoge", Main.width(6), Main.height(19));
+                            ctx.fillText(hub.session, Main.width(6), Main.height(19 + i * 7));
                             // ctx.fillText("1 / 2", Main.width(39), Main.height(19));
                         })
-                        .onPush(async () => {
-                            const id = setInterval(LoadingMenu, 50);
-                            
-                            await new Promise(async (resolve) => {
-                                await achex.connect("hoge", (packet) => {
-                                    console.log(packet);
-                                    if ("joinedHub" in packet) {
-                                        achex.send("hub", { "match": true });
-                                        resolve(null);
-                                    }
-                                    if ("match" in packet) {
-                                        resolve(null);
-                                    }
-                                });
+                        .onPush(() => {
+                            console.log(hub);
+                            achex.request({ "to": hub.id, "match": true });
+                            const start = Date.now();
+                            const callback = achex.once("data", (data) => {
+                                if ("match" in data && data.match) {
+                                    MultiGameMenu(hub.id);
+                                    console.log(Date.now() - start, "MS DELAY");
+                                }
                             });
-
-                            clearInterval(id);
-                            MultiGameMenu();
+                            setTimeout(() => achex.off("data", callback), 1000);
                         })
                 );
             }
@@ -373,7 +391,98 @@ function MultiSelectionMenu() {
     menu.show();
 }
 
-async function MultiGameMenu() {
+async function MultiGameMenu(name) {
+    if (achex.hub) await achex.disconnect();
+    await achex.connect(name);
+    const callback = achex.on("data", async (data) => {
+        console.log("TargetGameData:", data);
+        if ("toH" in data) {
+            if ("tiles" in data) {
+                const { tiles } = data;
+                target.field.tiles = tiles.map((lines, y) => lines.map((tile, x) => new FieldBlock(target.field, x, y, { hex: tile.hex, state: tile.state })));
+            }
+            if ("stack" in data) {
+                const { stack } = data;
+                target.stack = stack;
+            }
+            if ("holding" in data) {
+                const { holding } = data;
+                if (holding) target.hold.holding = new Mino(target, holding);
+            }
+            if ("score" in data) {
+                const { score } = data;
+                target.score.value = score;
+            }
+            if ("upLine" in data) {
+                const { upLine } = data;
+                if (upLine >= 2) Main.game.field.upLines(upLine);
+            }
+            menu.show();
+        }
+
+        if ("leftHub" in data) {
+            if (achex.hub) await achex.disconnect();
+            achex.off("data", callback);
+            Main.game.end();
+            setTimeout(MainMenu, 10);
+        }
+    });
+
+    // const data = { x: "w15", y: "h20", w: "w20", h: "w40" };
+    Main.game = new Game({ x: "w15", y: "h20", w: "w20", h: "w40" });
+    Main.game.start().then(async () => {
+        if (achex.hub) await achex.disconnect();
+        achex.off("data", callback);
+        Main.game.end();
+        setTimeout(MainMenu, 10);
+    });
+    Main.game.field.onCheckLine((line) => {
+        achex.request({ "toH": name, "upLine": line });
+    });
+
+    const target = new Game({ x: "w65", y: "h20", w: "w20", h: "w40" });
+
+    const handle = () => {
+        const { game } = Main;
+        const data = {
+            tiles: game.field.tiles.map((lines) => lines.map((tile) => ({ hex: tile.hex, state: tile.state }))),
+            stack: game.stack,
+            holding: game.hold.holding?.shape,
+            score: game.score.value
+        };
+        achex.request({ "toH": name, ...data });
+    }
+    handle();
+
+    const menu = new Menu()
+        .onDisplay(() => {
+            const { ctx } = Main;
+
+            Main.buttons = [
+                new Button({ x: Main.width(4), y: Main.width(3), w: Main.width(15), h: Main.width(4.5) })
+                    .onDisplay((button) => {
+                        const { x, y, w, h } = button.data;
+
+                        ctx.font = `${Main.width(4)}px tetris`;
+                        ctx.fillStyle = "#ffffff";
+                        ctx.fillText("< BACK", x, Main.width(6.5));
+                    })
+                    .onPush(async () => {
+                        await achex.disconnect();
+                        achex.off("data", callback);
+                        Main.game.end();
+                        setTimeout(MainMenu, 10);
+                    })
+            ];
+
+            Main.game.display();
+            target.display();
+            handle();
+        });
+    menu.show();
+}
+
+/* async function MultiGameMenu() {
     await achex.connect("hoge", async (packet) => {
         const { sID: id } = packet;
 
@@ -451,12 +560,11 @@ async function MultiGameMenu() {
             handle();
         });
     // menu.show();
-}
+} */
 
 function LoadingMenu(callback = () => void 0) {
-    variable.loading ??= { "0": 0, "1": 0, "2": 0 };
-    const { loading } = variable;
-    
+    const loading = variable.loading ??= { "0": 0, "1": 0, "2": 0 };
+
     loading[0] = (loading[0] + Math.PI / 10) % (2 * Math.PI);
     loading[1] = (loading[1] + Math.PI / 16) % (2 * Math.PI);
     loading[2] = (loading[2] + 0.3) % 4;
@@ -466,7 +574,7 @@ function LoadingMenu(callback = () => void 0) {
             const { ctx } = Main;
 
             ctx.strokeStyle = "#ffffff";
-            
+
             ctx.beginPath();
             ctx.arc(Main.width(70), Main.height(93), Main.width(3), loading[0], loading[0] + Math.PI * (2 / 3));
             ctx.stroke();
@@ -483,8 +591,16 @@ function LoadingMenu(callback = () => void 0) {
     menu.show();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+const achex = new Achex();
+document.addEventListener("DOMContentLoaded", async () => {
     Main.initialize();
+
+    LoadingMenu();
+    const i = setInterval(LoadingMenu, 50);
+
+    await achex.reload();
+    await achex.login();
+
+    clearInterval(i);
     MainMenu();
 });
-

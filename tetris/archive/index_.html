@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Tetris - Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/rules.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <input type="radio" id="scene-select-check" name="check">
+    <input type="radio" id="scene-playing-check" name="check">
+    <main class="scene-select">
+        <label for="scene-playing-check" id="scence-playing-button">テスト</label>
+    </main>
+    <main class="scene-playing">
+        <div class="area" id="p1">
+            <div id="hover">
+                <canvas id="hover-canvas"></canvas>
+            </div>
+            <div id="field">
+                <canvas id="canvas" width="200" height="400"></canvas>
+            </div>
+            <div id="info">
+                <p id="title">次のブロック</p>
+                <canvas id="next-canvas"></canvas>
+            </div>
+        </div>
+        <div class="area" id="p2">
+            <div id="hover">
+                <canvas id="hover-canvas"></canvas>
+            </div>
+            <div id="field">
+                <canvas id="canvas" width="200" height="400"></canvas>
+            </div>
+            <div id="info">
+                <p id="title">次のブロック</p>
+                <canvas id="next-canvas"></canvas>
+            </div>
+        </div>
+    </main>
+</body>

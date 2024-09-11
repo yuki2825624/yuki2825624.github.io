@@ -1,3 +1,5 @@
+// @ts-check
+
 class Game {
     /** @param {{ x: string, y: string, w: string, h: string }} field  */
     constructor(field) {
@@ -85,8 +87,15 @@ class FieldPanel extends Panel {
             )
         );
 
+        /** @type {(line: number) => void} */
+        this.checkLine = (line) => void 0;
         /** @type {() => void} */
         this.decontrol = () => void 0;
+    }
+
+    /** @param {(line: number) => void} callback  */
+    onCheckLine(callback) {
+        this.checkLine = callback;
     }
 
     async start() {
@@ -288,7 +297,7 @@ class FieldPanel extends Panel {
 
                 const tiles = [...this.tiles];
 
-                for (let i = 0; i < 4; i++) {
+                /* for (let i = 0; i < 4; i++) {
                     await new Promise((resolve) => {
                         setTimeout(() => {
                             for (const line of lines) {
@@ -298,7 +307,7 @@ class FieldPanel extends Panel {
                             resolve(null);
                         }, 50);
                     });
-                }
+                } */
 
                 for (const line of lines) {
                     tiles[line] = tiles[line].map((_, x) => new FieldBlock(this, x, line, { hex: "#111111", state: false }));
@@ -314,9 +323,34 @@ class FieldPanel extends Panel {
 
                 this.tiles = tiles;
                 this.main.display();
+
+                this.checkLine(lines.length);
             }
             resolve(null);
         });
+    }
+
+    upLines(line) {
+        const tiles = [...this.tiles];
+        for (let i = 0; i < line; i++) {
+            for (let y = 0; y < this.HEIGHT - 1; y++) {
+                for (let x = 0; x < this.WIDTH; x++) {
+                    const tile = this.tiles[y + 1][x];
+                    if (!tile.state) continue;
+                    tiles[y][x] = new FieldBlock(this, x, y, { hex: tile.hex, state: tile.state });
+                }
+            }
+            const idx = Math.floor(Math.random() * this.WIDTH);
+            const y = this.HEIGHT - 1;
+            tiles[y] = Array.from({ length: this.WIDTH }, (_, x) =>
+                x === idx
+                    ? new FieldBlock(this, x, y, { hex: "#111111", state: false })
+                    : new FieldBlock(this, x, y, { hex: "#dddddd", state: true })
+            );
+            this.move("Up");
+        }
+        this.tiles = tiles;
+        this.main.display();
     }
 
     display() {
@@ -381,14 +415,13 @@ class NextPanel extends Panel {
         const { ctx } = Main;
         const [deltaX, deltaY] = [this.sizeX / 15, this.sizeY / 15];
         const stack = [...this.main.stack];
-        // console.log(this.main);
         if (stack.length === 0) return;
         for (let i = 0; i < this.length; i++) {
             ctx.fillStyle = "#" + (0xff - i * 32).toString(16).repeat(3);
             ctx.fillRect(this.x + deltaX, this.y + deltaY + this.h / 5 * i, this.w - deltaX * 2, this.h / 5 - deltaY * 2);
 
             const shape = stack[i];
-            if (this.main.data.x === "w65") console.log(stack, shape);
+            // if (this.main.data.x === "w65") console.log(stack, shape);
             const node = new Mino(this.main, shape);
             const template = node.template(0);
             const [minY, maxY] = ((array) => [Math.min(...array), Math.max(...array)])(template.shape.map(([x, y]) => y));
@@ -438,7 +471,7 @@ class HoldPanel extends Panel {
         }
         else {
             this.holding = field.node;
-            
+
             if (this.main.stack.length < Mino.rules.size) {
                 const keys = [...Mino.rules.keys()];
                 for (let i = keys.length - 1; i > 0; i--) {
@@ -447,13 +480,13 @@ class HoldPanel extends Panel {
                 }
                 this.main.stack.push(...keys);
             }
-    
+
             const shape = this.main.stack.shift();
             setTimeout(() => this.main.display());
-            
+
             field.node = new Mino(this.main, shape);
         }
-        
+
         field.nodeX = Math.floor(field.WIDTH / 2 - field.node.size / 2);
         field.nodeY = 0;
         field.nodeRot = 0;
@@ -484,7 +517,7 @@ class HoldPanel extends Panel {
 
 class ScorePanel extends Panel {
     #value = 0;
-    
+
     constructor(main) {
         super(main, 5, 5);
     }
@@ -553,11 +586,9 @@ class Mino {
     }
 
     static getRule(shape) {
-        const key = Math.floor(Math.random() * 1000);
-        console.log("getRule:", shape, key);
         if (!shape) console.trace(shape);
         const rule = Mino.rules.get(shape);
-        if (!rule) throw Error(`${shape} MINO is invalid. ${key}`);
+        if (!rule) throw Error(`${shape} MINO is invalid.`);
         return rule;
     }
 
