@@ -332,14 +332,15 @@ class FieldPanel extends Panel {
 
     upLines(line) {
         const tiles = [...this.tiles];
-        for (let i = 0; i < line; i++) {
+        for (let i = 0; i < line - 1; i++) {
             for (let y = 0; y < this.HEIGHT - 1; y++) {
                 for (let x = 0; x < this.WIDTH; x++) {
                     const tile = this.tiles[y + 1][x];
-                    if (!tile.state) continue;
+                    // if (!tile.state) continue;
                     tiles[y][x] = new FieldBlock(this, x, y, { hex: tile.hex, state: tile.state });
                 }
             }
+
             const idx = Math.floor(Math.random() * this.WIDTH);
             const y = this.HEIGHT - 1;
             tiles[y] = Array.from({ length: this.WIDTH }, (_, x) =>
