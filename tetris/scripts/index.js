@@ -395,7 +395,6 @@ async function MultiGameMenu(name) {
     if (achex.hub) await achex.disconnect();
     await achex.connect(name);
     const callback = achex.on("data", async (data) => {
-        console.log("TargetGameData:", data);
         if ("toH" in data) {
             if ("tiles" in data) {
                 const { tiles } = data;
@@ -415,7 +414,8 @@ async function MultiGameMenu(name) {
             }
             if ("upLine" in data) {
                 const { upLine } = data;
-                if (upLine >= 2) Main.game.field.upLines(upLine);
+                Main.game.field.upLine += upLine;
+                console.log(data);
             }
             menu.show();
         }
@@ -436,8 +436,15 @@ async function MultiGameMenu(name) {
         Main.game.end();
         setTimeout(MainMenu, 10);
     });
-    Main.game.field.onCheckLine((line) => {
-        achex.request({ "toH": name, "upLine": line });
+    Main.game.field.onDeleteLine((line, tflip) => {
+        const upLine = (line - 1 + (tflip ? 2 : 0)) - Main.game.field.upLine;
+        if (upLine > 0) {
+            achex.request({ "toH": name, "upLine": upLine });
+            Main.game.field.upLine = 0;
+        }
+        else {
+            Main.game.field.upLine = -upLine;
+        }
     });
 
     const target = new Game({ x: "w65", y: "h20", w: "w20", h: "w40" });

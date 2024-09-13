@@ -86,21 +86,24 @@ class FieldPanel extends Panel {
                 new FieldBlock(this, x, y)
             )
         );
+        this.upLine = 0;
 
-        /** @type {(line: number) => void} */
-        this.checkLine = (line) => void 0;
+        /** @type {(line: number, tflip: boolean) => void} */
+        this.deleteLine = () => void 0;
         /** @type {() => void} */
         this.decontrol = () => void 0;
     }
 
-    /** @param {(line: number) => void} callback  */
-    onCheckLine(callback) {
-        this.checkLine = callback;
+    /** @param {(line: number, tflip: boolean) => void} callback  */
+    onDeleteLine(callback) {
+        this.deleteLine = callback;
     }
 
     async start() {
         this.active = true;
         while (this.active) {
+            this.upLines();
+            this.upLine = 0;
             await this.control();
             this.main.hold.held = false;
         }
@@ -137,7 +140,7 @@ class FieldPanel extends Panel {
                 this.decontrol = () => void 0;
                 clearInterval(i);
                 this.draw(true);
-                await this.checkLines();
+                await this.deleteLines();
                 this.node = null;
                 this.nodeX = 0;
                 this.nodeY = 0;
@@ -262,7 +265,7 @@ class FieldPanel extends Panel {
         return !this.outside(x, y, rot) && !this.collision(x, y, rot);
     }
 
-    checkLines() {
+    deleteLines() {
         return new Promise(async (resolve) => {
             const lines = Array.from({ length: this.tiles.length }, (_, line) => line)
                 .filter((line) => this.tiles[line].every((tile) => tile.state));
@@ -280,19 +283,25 @@ class FieldPanel extends Panel {
                     return false;
                 }
 
+                const def = (score, line, tflip = false) => {
+                    this.main.score.value += score;
+                    this.deleteLine(line, tflip);
+                }
                 if (tflip()) {
                     console.log("T-Flip");
-                    this.main.score.value +=
-                        lines.length === 1 ? 80 :
-                            lines.length === 2 ? 120 :
-                                lines.length === 3 ? 180 : 0;
+                    switch (lines.length) {
+                        case 1: def(80, 1, true); break;
+                        case 2: def(120, 2, true); break;
+                        case 3: def(180, 3, true); break;
+                    }
                 }
                 else {
-                    this.main.score.value +=
-                        lines.length === 1 ? 10 :
-                            lines.length === 2 ? 30 :
-                                lines.length === 3 ? 50 :
-                                    lines.length === 4 ? 80 : 0;
+                    switch (lines.length) {
+                        case 1: def(10, 1); break;
+                        case 2: def(30, 2); break;
+                        case 3: def(50, 3); break;
+                        case 4: def(80, 4); break;
+                    }
                 }
 
                 const tiles = [...this.tiles];
@@ -323,26 +332,29 @@ class FieldPanel extends Panel {
 
                 this.tiles = tiles;
                 this.main.display();
-
-                this.checkLine(lines.length);
             }
             resolve(null);
         });
     }
 
-    upLines(line) {
+    upLines() {
+        const height = this.upLine;
+        console.log("UpLine?:", height);
+        if (height <= 0) return;
         const tiles = [...this.tiles];
-        for (let i = 0; i < line - 1; i++) {
-            for (let y = 0; y < this.HEIGHT - 1; y++) {
-                for (let x = 0; x < this.WIDTH; x++) {
-                    const tile = this.tiles[y + 1][x];
-                    // if (!tile.state) continue;
-                    tiles[y][x] = new FieldBlock(this, x, y, { hex: tile.hex, state: tile.state });
-                }
-            }
 
+        for (let y = 0; y < this.HEIGHT - height; y++) {
+            for (let x = 0; x < this.WIDTH; x++) {
+                const tile = this.tiles[y + height][x];
+                // if (!tile.state) continue;
+                tiles[y][x] = new FieldBlock(this, x, y, tile);
+            }
+        }
+
+        this.hide();
+        for (let i = 0; i < height; i++) {
             const idx = Math.floor(Math.random() * this.WIDTH);
-            const y = this.HEIGHT - 1;
+            const y = this.HEIGHT - i - 1;
             tiles[y] = Array.from({ length: this.WIDTH }, (_, x) =>
                 x === idx
                     ? new FieldBlock(this, x, y, { hex: "#111111", state: false })
@@ -350,14 +362,14 @@ class FieldPanel extends Panel {
             );
             this.move("Up");
         }
+        this.draw();
+
         this.tiles = tiles;
         this.main.display();
     }
 
     display() {
         super.display();
-        // const { ctx } = Main;
-        // const [deltaX, deltaY] = [this.sizeX / 15, this.sizeY / 15];
         for (let y = 0; y < this.tiles.length; y++) {
             for (let x = 0; x < this.tiles[y].length; x++) {
                 const tile = this.tiles[y][x];
@@ -422,7 +434,6 @@ class NextPanel extends Panel {
             ctx.fillRect(this.x + deltaX, this.y + deltaY + this.h / 5 * i, this.w - deltaX * 2, this.h / 5 - deltaY * 2);
 
             const shape = stack[i];
-            // if (this.main.data.x === "w65") console.log(stack, shape);
             const node = new Mino(this.main, shape);
             const template = node.template(0);
             const [minY, maxY] = ((array) => [Math.min(...array), Math.max(...array)])(template.shape.map(([x, y]) => y));
