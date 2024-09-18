@@ -18,3 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 25);
     }
 });
+
+//==========================================//
+// import random                            //
+// import time                              //
+// random.randint(0, 10)                    //
+//==========================================//

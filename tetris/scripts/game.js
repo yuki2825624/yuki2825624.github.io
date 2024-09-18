@@ -339,7 +339,6 @@ class FieldPanel extends Panel {
 
     upLines() {
         const height = this.upLine;
-        console.log("UpLine?:", height);
         if (height <= 0) return;
         const tiles = [...this.tiles];
 

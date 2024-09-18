@@ -6,6 +6,8 @@ const isOnline = navigator.onLine;
 
 const variable = {};
 
+const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
+
 class Main {
     /** @type {Button[]} */
     static #buttons = [];
@@ -203,7 +205,7 @@ function MainMenu() {
                     })
                     .onPush(async () => {
                         const i = setInterval(LoadingMenu, 50);
-                        await new Promise((resolve) => setTimeout(resolve, 500));
+                        await sleep(500);
                         clearInterval(i);
                         SoloGameMenu();
                     }),
@@ -279,7 +281,8 @@ async function fetchHubs(timeout = 1000) {
 
 async function MultiSelectionMenu() {
     const i = setInterval(LoadingMenu, 50);
-    const hubs = await fetchHubs(1000);
+    const hubs = await fetchHubs(900);
+    await sleep(100);
     clearInterval(i);
     const menu = new Menu()
         .onDisplay(() => {
@@ -371,7 +374,7 @@ async function MultiSelectionMenu() {
                             ctx.fillText(hub.session, Main.width(6), Main.height(19 + i * 7));
                             // ctx.fillText("1 / 2", Main.width(39), Main.height(19));
                         })
-                        .onPush(() => {
+                        .onPush(async () => {
                             console.log(hub);
                             achex.request({ "to": hub.id, "match": true });
                             const start = Date.now();
@@ -381,7 +384,8 @@ async function MultiSelectionMenu() {
                                     console.log(Date.now() - start, "MS DELAY");
                                 }
                             });
-                            setTimeout(() => achex.off("data", callback), 1000);
+                            await sleep(1000);
+                            achex.off("data", callback)
                         })
                 );
             }
@@ -488,86 +492,6 @@ async function MultiGameMenu(name) {
         });
     menu.show();
 }
-
-/* async function MultiGameMenu() {
-    await achex.connect("hoge", async (packet) => {
-        const { sID: id } = packet;
-
-        if (achex.id === id) return;
-        if ("toH" in packet) {
-            if ("tiles" in packet) {
-                const { tiles } = packet;
-                target.field.tiles = tiles.map((lines, y) => lines.map((tile, x) => new FieldBlock(target.field, x, y, { hex: tile.hex, state: tile.state })));
-            }
-            if ("stack" in packet) {
-                const { stack } = packet;
-                target.stack = stack;
-            }
-            if ("holding" in packet) {
-                const { holding } = packet;
-                if (holding) target.hold.holding = new Mino(target, holding);
-            }
-            if ("score" in packet) {
-                const { score } = packet;
-                target.score.value = score;
-            }
-            menu.show();
-        }
-
-        if ("leftHub" in packet) {
-            await achex.disconnect();
-            Main.game.end();
-            setTimeout(MainMenu, 10);
-        }
-    });
-    
-    // const data = { x: "w15", y: "h20", w: "w20", h: "w40" };
-    Main.game = new Game({ x: "w15", y: "h20", w: "w20", h: "w40" });
-    Main.game.start().then(async () => {
-        await achex.disconnect();
-        Main.game.end();
-        setTimeout(MainMenu, 10);
-    });
-    const target = new Game({ x: "w65", y: "h20", w: "w20", h: "w40" });
-    
-    const handle = () => {
-        const { game } = Main;
-        const data = {
-            tiles: game.field.tiles.map((lines) => lines.map((tile) => ({ hex: tile.hex, state: tile.state }))),
-            stack: game.stack,
-            holding: game.hold.holding?.shape,
-            score: game.score.value
-        };
-        achex.send("hub", data);
-    }
-    handle();
-
-    const menu = new Menu()
-        .onDisplay(() => {
-            const { ctx } = Main;
-
-            Main.buttons = [
-                new Button({ x: Main.width(4), y: Main.width(3), w: Main.width(15), h: Main.width(4.5) })
-                    .onDisplay((button) => {
-                        const { x, y, w, h } = button.data;
-
-                        ctx.font = `${Main.width(4)}px tetris`;
-                        ctx.fillStyle = "#ffffff";
-                        ctx.fillText("< BACK", x, Main.width(6.5));
-                    })
-                    .onPush(async () => {
-                        await achex.disconnect();
-                        Main.game.end();
-                        setTimeout(MainMenu, 10);
-                    })
-            ];
-
-            Main.game.display();
-            target.display();
-            handle();
-        });
-    // menu.show();
-} */
 
 function LoadingMenu(callback = () => void 0) {
     const loading = variable.loading ??= { "0": 0, "1": 0, "2": 0 };
