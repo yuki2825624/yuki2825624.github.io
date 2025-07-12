@@ -1,90 +1,195 @@
 <!DOCTYPE html>
+<html lang="ja">
+
 <head>
+    <title>yuki2825624</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/icon.png" type="image/png">
-    <link rel="shortcut icon" href="img/icon.png" type="image/png">
-    <title>yuki2825624</title>
     <meta property="og:title" content="Profile">
     <meta property="og:description" content="yuki2825624 profile">
     <meta property="og:url" content="https://yuki2825624.github.io/">
-    <meta property="og:image" content="https://yuki2825624.github.io/img/icon.png">
+    <meta property="og:image" content="assets/icon.png">
+    <link rel="icon" href="assets/icon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>
-    <script src="./draw.js"></script>
-    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- <canvas class="canvas"></canvas> -->
-    <div class="overlay">
-        <div class="banner">
-            <h1 class="typing" data-text="Hi There"></h1>
-        </div>
-        <div>
-            <input type="checkbox" id="menu-button-check">
-            <label for="menu-button-check" class="menu-button" style="height: 0%; width: 0%;">
-                <h6>MENU</h6>
-                <span></span>
-            </label>
-            <div class="menu-list">
-                <ul>
-                    <li><a href="./index.html">Home</a></li><br>
-                    <li><a href="./tetris/index.html">Test</a></li><br>
+
+    <div class="header">
+        <div class="frame"></div>
+        <input id="menu-button-active" type="checkbox" hidden />
+        <label class="menu-button" for="menu-button-active">
+            <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+                <g>
+                    <polygon points="399.996,307.615 402.167,311.695 472.621,274.205 475.470,356.424 545.253,400 475.470,443.576 472.621,525.795 399.996,487.153 327.371,525.795 324.523,443.576 254.746,400 324.523,356.424 327.371,274.205 399.996,312.847 402.167,311.695 399.996,307.615 402.167,303.54 318.650,259.104 315.460,351.191 237.303,400 315.460,448.81 318.650,540.896 399.996,497.619 481.343,540.896 484.532,448.81 562.689,400 484.532,351.191 481.343,259.104 397.825,303.54 399.996,307.615 402.167,303.54" />
+                    <polygon points="399.996,224.883 402.167,228.957 541.569,154.789 547.126,315.055 683.143,400 547.126,484.945 541.569,645.211 399.996,569.89 258.423,645.211 252.867,484.945 116.850,400 252.867,315.055 258.423,154.789 399.996,230.11 402.167,228.957 399.996,224.883 402.167,220.803 249.702,139.682 243.804,309.822 99.407,400 243.804,490.178 249.702,660.318 399.996,580.356 550.290,660.318 556.188,490.178 700.585,400 556.188,309.822 550.290,139.682 397.825,220.803 399.996,224.883 402.167,220.803" />
+                    <polyline points="395.380,2 395.380,798 404.613,798 404.613,2" />
+                    <polyline points="53.007,205.001 742.368,603.001 746.986,595 57.624,196.999" />
+                    <polyline points="57.624,603.001 746.986,205.001 742.368,196.999 53.007,595" />
+                    <polygon points="632.418,696.582 637.932,537.371 773.052,452.993 768.161,445.156 628.868,532.138 623.184,696.259" />
+                    <polygon points="259.362,749.569 399.996,674.748 540.630,749.569 544.972,741.415 399.996,664.282 255.026,741.415" />
+                    <polygon points="26.947,452.993 162.061,537.371 167.574,696.582 176.808,696.259 171.124,532.138 31.838,445.156" />
+                    <polygon points="167.574,103.424 162.061,262.629 26.947,347.007 31.838,354.844 171.124,267.862 176.808,103.741 167.581,103.424" />
+                    <polygon points="540.630,50.431 399.996,125.259 259.362,50.431 255.026,58.585 399.996,135.724 544.972,58.585" />
+                    <polygon points="773.052,347.007 637.932,262.629 632.418,103.424 623.184,103.741 628.868,267.862 768.161,354.844" />
+                </g>
+            </svg>
+            <svg id="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <line x1="20" y1="20" x2="80" y2="80" />
+                <line x1="80" y1="20" x2="20" y2="80" />
+            </svg>
+        </label>
+        <label class="menu-overlay" for="menu-button-active"></label>
+        <div class="menu">
+            <nav class="navigation-container">
+                <ul class="navigation-selection">
+                    <li><a href="./index.html"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="./work.html"><i class="fa fa-book"></i> Work</a></li>
+                    <li><a href="./about.html"><i class="fa fa-info-circle"></i> About</a></li>
+                    <!-- <li><a href="./tetris/index.html" target="_blank"><i class="fa fa-tint"></i> Test</a></li> -->
                 </ul>
-                <p id="license">© yuki2825624</p>
+            </nav>
+            <div class="social-container">
+                <p id="social-text">Social</p>
+                <ul id="social-list">
+                    <li><a href="https://qiita.com/yuki2825624" target="_blank"><i class="fas fa-file-alt"></i></a></li>
+                    <li><a href="https://github.com/yuki2825624" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                    <li><a href="https://twitter.com/yuki2825624" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="https://steamcommunity.com/profiles/76561199384039065/" target="_blank"><i class="fa-brands fa-steam"></i></a></li>
+                    <li><a href="https://discord.com/users/964310223235993690" target="_blank"><i class="fa-brands fa-discord"></i></a></li>
+                </ul>
             </div>
         </div>
-        <main>
-            <div class="intro">
-                <img src="img/icon.png" alt="https://seiga.nicovideo.jp/tag/%E7%81%AB%E7%84%94%E7%8C%AB%E7%87%90%20?page=80&target=illust_all" loading="lazy">
-                <h2 class="typing" data-text="yuki2825624"></h2>
-                <p class="typing" data-text="I'm yuki; Minecraft Developer / TypeScript / Python / C++ / C#"></p>
-                <br>
-                <p><b class="typing" data-text="- Discord Status -"></b></p>
-                <img src="https://discord-readme-badge.vercel.app/api?id=964310223235993690" alt="Discord Status" loading="lazy">
-            </div>
-            <h2>- Links</h2>
-            <div class="links">
-                <li>
-                    <div class="thumbnail">
-                        <a href="https://twitter.com/yuki2825624" target="_blank">
-                            <img src="img/x.png" alt="@yuki2825624" loading="lazy"></img>
-                        </a>
-                    </div>
-                    <div class="content">
-                        <a href="https://twitter.com/yuki2825624">Twitter(X) - @yuki2825624</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="thumbnail">
-                        <a href="https://github.com/yuki2825624" target="_blank">
-                            <img src="img/github.png" alt="yuki2825624" loading="lazy"></img>
-                        </a>
-                    </div>
-                    <div class="content">
-                        <a href="https://github.com/yuki2825624">Github - yuki2825624</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="thumbnail">
-                        <a href="https://steamcommunity.com/profiles/76561199384039065" target="_blank">
-                            <img src="img/steam.png" alt="yuki2825624" title="©2024 Valve Corporation. Steam及びSteamロゴは、米国及びまたはその他の国のValve Corporationの商標及びまたは登録商標です。 " loading="lazy"></img>
-                        </a>
-                    </div>
-                    <div class="content">
-                        <a href="https://steamcommunity.com/profiles/76561199384039065">Steam - yuki2825624</a>
-                    </div>
-                </li><li>
-                    <div class="thumbnail">
-                        <a href="https://qiita.com/yuki2825624" target="_blank">
-                            <img src="img/qiita.png" alt="yuki2825624" loading="lazy"></img>
-                        </a>
-                    </div>
-                    <div class="content">
-                        <a href="https://qiita.com/yuki2825624">Qiita - yuki2825624</a>
-                    </div>
-                </li>
-            </div>
-        </main>
-        <footer id="footer">© yuki2825624</footer>
     </div>
+
+    <main class="main-content">
+        <div class="sidebar">
+            <div class="sidebar-scroll">
+                <nav class="navigation-container">
+                    <ul class="navigation-selection">
+                        <li><a href="./index.html"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="./work.html"><i class="fa fa-book"></i> Work</a></li>
+                        <li><a href="./about.html"><i class="fa fa-info-circle"></i> About</a></li>
+                        <!-- <li><a href="./tetris/index.html" target="_blank"><i class="fa fa-tint"></i> Test</a></li> -->
+                    </ul>
+                </nav>
+                <div class="social-container">
+                    <p id="social-text">Social</p>
+                    <ul id="social-list">
+                        <li><a href="https://qiita.com/yuki2825624" target="_blank"><i class="fas fa-file-alt"></i></a></li>
+                        <li><a href="https://github.com/yuki2825624" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                        <li><a href="https://twitter.com/yuki2825624" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="https://steamcommunity.com/profiles/76561199384039065/" target="_blank"><i class="fa-brands fa-steam"></i></a></li>
+                        <li><a href="https://discord.com/users/964310223235993690" target="_blank"><i class="fa-brands fa-discord"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="inner">
+            <div class="introduction">
+                <div class="profile">
+                    <img id="icon" src="./assets/icon.png" alt="yuki2825624" loading="lazy">
+                    <div class="profile-name">
+                        <p id="name">yuki</p>
+                        <p id="id">@yuki2825624</p>
+                    </div>
+                    <p id="description" class="typing" data-text="学生。JavaScript / TypeScript を好む。;普段はMinecraftから始まり、DiscordのBotや、ウェブサイト、ゲームなどの開発をしている。;気分では記事の執筆もしている。;最近の趣味は将棋、囲碁やチェスなど。"></p>
+                    <ul id="social-list">
+                        <li><a href="https://qiita.com/yuki2825624" target="_blank"><i class="fas fa-file-alt"></i></a></li>
+                        <li><a href="https://github.com/yuki2825624" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                        <li><a href="https://twitter.com/yuki2825624" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="https://steamcommunity.com/profiles/76561199384039065/" target="_blank"><i class="fa-brands fa-steam"></i></a></li>
+                        <li><a href="https://discord.com/users/964310223235993690" target="_blank"><i class="fa-brands fa-discord"></i></a></li>
+                    </ul>
+                </div>
+                <div class="divider"></div>
+                <div class="work">
+                    <h2 id="work-title">Work</h2>
+                    <div class="work-list">
+                        <div class="work-item">
+                            <a href="work/licu.html"><img class="work-item-image" src="assets/work/licu.png" alt="licu" loading="lazy"></a>
+                            <div class="work-item-remarks">
+                                <h3 id="title">Licu（りつ）</h3>
+                                <p id="description">
+                                    Discordの多機能Bot
+                                </p>
+                                <div id="tags">
+                                    <a href="https://discord.com/" target="_blank">Discord</a>
+                                    <a href="https://discord.com/developers/docs/intro" target="_blank">Bot</a>
+                                </div>
+                                <a id="detail-link" href="./work/licu.html">詳しく見る <i class="fa-solid fa-right-long"></i></a>
+                            </div>
+                        </div>
+                        <div class="work-item">
+                            <div class="work-item-remarks">
+                                <h3 id="title">Tetris（テトリス）</h3>
+                                <p id="description">
+                                    Web版のテトリス
+                                    <br>
+                                    サイト作成の練習で作成したものの、当初JavaScriptの知識しかなく、9割がJavaScriptで作成されたテトリス
+                                </p>
+                                <div id="tags">
+                                    <a target="_blank">Webゲーム</a>
+                                </div>
+                                <a id="detail-link" href="./tetris/index.html">詳しく見る <i class="fa-solid fa-right-long"></i></a>
+                            </div>
+                            <a href="./tetris/index.html"><img class="work-item-image" src="./assets/work/tetris.png" alt="tetris" loading="lazy"></a>
+                        </div>
+                    </div>
+                    <div class="view-all">
+                        <a class="view-all-anchor" href="work.html">
+                            <p class="view-all-text">全て見る</p>
+                            <div class="view-all-button">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                                    <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="about">
+                    <h2 id="about-title">About</h2>
+                    <div class="about-profile">
+                        <div class="about-info">
+                            <div class="about-name">
+                                <p id="name">yuki</p>
+                                <p id="id">@yuki2825624</p>
+                            </div>
+                            <p class="about-description typing" data-text="中学生の頃からプログラミングを始め、今ではフロントエンドやバックエンドなどの分野で開発を行っている。;;少し前までは、統合版MinecraftでのScriptAPIを使用したアドオンの開発に勤しんでいた。;;時にはQiitaで技術関連の記事を低頻度で投稿している。"></p>
+                        </div>
+                        <div class="about-image">
+                            <img class="about-icon" src="./assets/icon.png" alt="yuki2825624" loading="lazy">
+                            <img class="about-rotate-text" src="./assets/about-text.png">
+                        </div>
+                    </div>
+                    <div class="view-all">
+                        <a class="view-all-anchor" href="about.html">
+                            <p class="view-all-text">全て見る</p>
+                            <div class="view-all-button">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                                    <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="divider"></div>
+            </div>
+            <div class="footer">
+                <footer class="license">
+                    <p>Copyright &copy; 2024 - 2025 yuki2825624. All Rights Reserved.</p>
+                </footer>
+            </div>
+        </div>
+        <button class="top-button" onclick="window.scrollTo(0, 0)">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                <path d="M6 15L12 9L18 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+    </main>
 </body>
+
+</html>
