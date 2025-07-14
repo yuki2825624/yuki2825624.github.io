@@ -224,11 +224,12 @@ a, label {
 
 .navigation-selection {
     display: flex;
+    flex-direction: column;
     list-style: none;
-    padding: 0;
+    gap: 1.2rem;
+    padding: 10%;
     margin: 0;
     width: 80%;
-    flex-direction: column;
     text-align: left;
 }
 
@@ -240,7 +241,7 @@ a, label {
 
 .navigation-selection li a {
     color: #fff;
-    font-size: 1.7rem;
+    font-size: 2.1rem;
     padding: 1rem;
 
     &:hover {
@@ -262,14 +263,14 @@ a, label {
     border-top: 1px solid #f2f3f65d;
 }
 
-.social-container #social-text {
+.social-container .social-text {
     display: block;
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: #dffff2;
 }
 
-#social-list {
+.social-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -281,7 +282,7 @@ a, label {
     justify-content: left;
 }
 
-#social-list li {
+.social-list li {
     display: flex;
     width: 3.5rem;
     height: 3.5rem;
@@ -289,9 +290,9 @@ a, label {
     justify-content: center;
 }
 
-#social-list a {
+.social-list a {
     color: #fff;
-    font-size: 2.3rem;
+    font-size: 2.5rem;
 
     &:hover {
         color: #a2a2a2;
@@ -351,7 +352,7 @@ a, label {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
-.profile #icon {
+.profile .profile-icon {
     margin: 0;
     width: 12rem;
     height: 12rem;
@@ -369,37 +370,39 @@ a, label {
 
 .profile-name #name {
     margin: 0;
-    font-size: 2.4rem;
+    font-size: 3.2rem;
 }
 
 .profile-name #id {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     opacity: 0.7;
 }
 
-.profile #description {
+.profile-description {
     display: block;
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.9rem;
+    color: #363636dc;
     overflow-wrap: anywhere;
     text-align: left;
     grid-area: description;
 }
 
-.profile #social-list {
+.profile-social-list {
+    display: flex;
+    gap: 1rem;
     grid-area: social;
-    gap: 1.5rem;
 }
 
-.profile #social-list li a {
+.profile-social-list a {
     display: flex;
     width: 4rem;
-    height: 2.3rem;
+    height: 3rem;
     border-radius: 2rem;
     background: #799c842b;
     color: #00000096;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     align-items: center;
     justify-content: center;
 
@@ -419,7 +422,7 @@ a, label {
 .work #work-title {
     position: relative;
     color: #80cba8;
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 200;
     padding-left: 20rem;
     margin: 0;
@@ -516,7 +519,7 @@ a, label {
 
 .work-item .work-item-remarks #tags a {
     color: #989898ab;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 
     &:before {
         content: "# ";
@@ -525,20 +528,20 @@ a, label {
 
 .work-item .work-item-remarks #title {
     margin: 1rem 0;
-    font-size: 2rem;
+    font-size: 2.8rem;
     font-weight: 400;
 }
 
 .work-item .work-item-remarks #description {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     color: #363636dc;
 }
 
 .work-item .work-item-remarks #detail-link {
     width: fit-content;
     color: #3d3d3d;
-    font-size: 1.4rem;
+    font-size: 1.9rem;
     border-bottom: 1px solid #3d3d3d;
 
     &:hover {
@@ -612,7 +615,7 @@ a, label {
 .about #about-title {
     position: relative;
     color: #80cba8;
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 200;
     padding-left: 20rem;
     text-shadow: 0 0 0.6rem #80cba8;
@@ -672,12 +675,12 @@ a, label {
 
 .about-name #name {
     margin: 0;
-    font-size: 3rem;
+    font-size: 3.2rem;
 }
 
 .about-name #id {
     margin: 0;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     opacity: 0.7;
 }
 
@@ -685,7 +688,7 @@ a, label {
     position: relative;
     align-self: flex-start;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     color: #363636dc;
     margin: 0;
     grid-area: description;
@@ -693,14 +696,12 @@ a, label {
 
 @media (min-width: 1025px) {
     .about-description {
-        font-size: 1.8rem;
         width: 280px;
     }
 }
 
 @media (max-width: 1024px) {
     .about-description {
-        font-size: 1.4rem;
         width: 100%;
     }
 }
@@ -712,15 +713,15 @@ a, label {
 
 @media (min-width: 1025px) {
     .about-icon {
-        width: 290px;
-        height: 290px;
+        width: 320px;
+        height: 320px;
     }
 }
 
 @media (max-width: 1024px) {
     .about-icon {
-        width: 28rem;
-        height: 28rem;
+        width: 32rem;
+        height: 32rem;
     }
 }
 
@@ -761,7 +762,7 @@ a, label {
 }
 
 .license {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-align: center;
 }
 
