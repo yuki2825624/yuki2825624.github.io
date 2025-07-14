@@ -21,8 +21,9 @@ body {
     overflow-x: hidden;
 }
 
-a {
+a, label {
     -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
 }
 
 .header {
@@ -45,7 +46,6 @@ a {
     background: #e4fff091;
     border-radius: 50%;
     z-index: 1;
-    text-decoration: none;
 }
 
 .header-logo img {
@@ -54,7 +54,6 @@ a {
     display: block;
     border-radius: 50%;
 }
-
 
 .header .frame {
     position: fixed;
@@ -240,7 +239,6 @@ a {
 }
 
 .navigation-selection li a {
-    text-decoration: none;
     color: #fff;
     font-size: 1.7rem;
     padding: 1rem;
@@ -292,7 +290,6 @@ a {
 }
 
 #social-list a {
-    text-decoration: none;
     color: #fff;
     font-size: 2.3rem;
 
@@ -323,6 +320,14 @@ a {
             rgba(0, 0, 0, 0.015) 8.5rem); */
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.introduction .class {
+    display: flex;
+    position: relative;
+    display: inline;
+    justify-content: center;
+    align-items: center;
 }
 
 .divider {
@@ -512,7 +517,6 @@ a {
 .work-item .work-item-remarks #tags a {
     color: #989898ab;
     font-size: 1.2rem;
-    text-decoration: none;
 
     &:before {
         content: "# ";
@@ -535,7 +539,6 @@ a {
     width: fit-content;
     color: #3d3d3d;
     font-size: 1.4rem;
-    text-decoration: none;
     border-bottom: 1px solid #3d3d3d;
 
     &:hover {
@@ -557,7 +560,6 @@ a {
     width: 20rem;
     padding: 0.3rem;
     border-radius: 5rem;
-    text-decoration: none;
     text-align: center;
 }
 
