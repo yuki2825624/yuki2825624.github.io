@@ -1,6 +1,15 @@
+:root {
+    --body-background: #bbe1cc;
+    --header-logo-background: #e4fff091;
+    --menu-button-color: #f5f5f5;
+    --main-background: linear-gradient(90deg, #2f7c5e 0%, #50a07d 30%, #5ea587 50%, #50a07d 70%, #2f7c5e 100%);
+    --intro-background: #fff;
+    --content-box-shadow: 0 0 0.3rem #0000001f;
+}
+
 @font-face {
-    font-family: 'NikukyuMaru';
-    src: url('https://nyashi.jp/font/nikumaru.woff') format('woff');
+    font-family: "NikukyuMaru";
+    src: url("https://nyashi.jp/font/nikumaru.woff") format("woff");
 }
 
 html {
@@ -17,11 +26,12 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background: #bbe1cc;
+    background: var(--body-background);
     overflow-x: hidden;
 }
 
-a, label {
+a,
+label {
     -webkit-tap-highlight-color: transparent;
     text-decoration: none;
 }
@@ -43,7 +53,7 @@ a, label {
     height: 6rem;
     margin: 0.5rem;
     padding: 1rem;
-    background: #e4fff091;
+    background: var(--header-logo-background);
     border-radius: 50%;
     z-index: 1;
 }
@@ -62,7 +72,7 @@ a, label {
     width: 100%;
     height: 1rem;
     pointer-events: none;
-    background: #bbe1cc;
+    background: var(--body-background);
     box-sizing: border-box;
 }
 
@@ -75,7 +85,7 @@ a, label {
     height: 11.5rem;
     top: 0;
     right: 0;
-    background: #bbe1cc;
+    background: var(--body-background);
 }
 
 .menu-button {
@@ -88,7 +98,7 @@ a, label {
     margin: 2.3rem;
     border-radius: 50%;
     transition: transform 0.4s;
-    background: #bbe1cc;
+    background: var(--body-background);
     cursor: pointer;
     align-items: center;
     justify-content: center;
@@ -102,7 +112,7 @@ a, label {
     opacity: 1;
     transform: scale(1);
     transition: opacity 0.4s, transform 0.4s;
-    fill: #f5f5f5;
+    fill: var(--menu-button-color);
 }
 
 .menu-button #close {
@@ -112,17 +122,17 @@ a, label {
     opacity: 0;
     transform: scale(0);
     transition: opacity 0.4s, transform 0.4s;
-    stroke: #f5f5f5;
+    stroke: var(--menu-button-color); 
     stroke-width: 5;
     stroke-linecap: round;
 }
 
-#menu-button-active:checked~.menu-button #hamburger {
+#menu-button-active:checked ~ .menu-button #hamburger {
     opacity: 0;
     transform: scale(0);
 }
 
-#menu-button-active:checked~.menu-button #close {
+#menu-button-active:checked ~ .menu-button #close {
     opacity: 1;
     transition: opacity 0.4s, transform 0.4s;
     transform: scale(1) rotate(0deg);
@@ -134,7 +144,7 @@ a, label {
     right: 0;
     height: 100vh;
     padding: 0 2rem;
-    background: #bbe1cc;
+    background: var(--body-background);
     transform: translateX(100%);
     transition: transform 0.4s ease;
     overflow-y: scroll;
@@ -142,7 +152,7 @@ a, label {
     z-index: 11;
 }
 
-#menu-button-active:checked~.menu {
+#menu-button-active:checked ~ .menu {
     box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
     transform: translateX(0);
 }
@@ -165,14 +175,14 @@ a, label {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 1);
+    background: #000;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
     z-index: 10;
 }
 
-#menu-button-active:checked~.menu-overlay {
+#menu-button-active:checked ~ .menu-overlay {
     opacity: 0.3;
     pointer-events: auto;
 }
@@ -190,7 +200,7 @@ a, label {
         display: flex;
         padding: 1rem;
         border-radius: 1.5rem;
-        background: linear-gradient(90deg, #2f7c5e 0%, #50a07d 30%, #5ea587 50%, #50a07d 70%, #2f7c5e 100%);
+        background: var(--main-background);
     }
 }
 
@@ -210,12 +220,13 @@ a, label {
 .sidebar-scroll {
     position: sticky;
     top: 2rem;
+    margin-bottom: 8rem;
     border-radius: 1rem;
     background: #ffffff11;
 }
 
 .navigation-container {
-    margin-top: 5rem;
+    margin-top: 2rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -226,7 +237,7 @@ a, label {
     display: flex;
     flex-direction: column;
     list-style: none;
-    gap: 1.2rem;
+    gap: 0.4rem;
     padding: 10%;
     margin: 0;
     width: 80%;
@@ -251,6 +262,11 @@ a, label {
         text-shadow: 0 0 0.2rem #00000066;
         transition: background 0.5s, color 0.5s, text-shadow 0.5s;
     }
+}
+
+.navigation-selection li i {
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .social-container {
@@ -312,8 +328,7 @@ a, label {
     padding: 2rem;
     min-height: 500px;
     border-radius: 1rem;
-    background:
-        #fff;
+    background: var(--intro-background);
     /* repeating-linear-gradient(45deg,
             transparent,
             transparent 8rem,
@@ -323,12 +338,14 @@ a, label {
     background-repeat: no-repeat;
 }
 
-.introduction .class {
+.introduction .title {
     display: flex;
     position: relative;
-    display: inline;
     justify-content: center;
-    align-items: center;
+    margin: 5rem 0 0 0;
+    font-size: 5rem;
+    font-weight: 200;
+    letter-spacing: 1.6rem;
 }
 
 .divider {
@@ -349,7 +366,7 @@ a, label {
     padding: 1rem;
     justify-content: left;
     border: 0.4rem solid #80cba8;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--content-box-shadow);
 }
 
 .profile .profile-icon {
@@ -411,21 +428,13 @@ a, label {
     }
 }
 
-.work {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    /* margin-top: 10rem; */
-    gap: 5rem;
-}
-
-.work #work-title {
+.content-title {
     position: relative;
     color: #80cba8;
     font-size: 3.2rem;
     font-weight: 200;
     padding-left: 20rem;
-    margin: 0;
+    margin: 5rem 0;
     text-shadow: 0 0 0.6rem #80cba8;
 
     &:before {
@@ -438,6 +447,13 @@ a, label {
         background: #80cba8;
         box-shadow: 0 0 0.3rem #80cba8;
     }
+}
+
+.work {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 5rem;
 }
 
 .work-list {
@@ -612,26 +628,6 @@ a, label {
     gap: 5rem;
 }
 
-.about #about-title {
-    position: relative;
-    color: #80cba8;
-    font-size: 3.2rem;
-    font-weight: 200;
-    padding-left: 20rem;
-    text-shadow: 0 0 0.6rem #80cba8;
-}
-
-.about #about-title:before {
-    content: "";
-    position: absolute;
-    width: 16rem;
-    min-height: 1px;
-    top: 50%;
-    left: 2rem;
-    background: #80cba8;
-    box-shadow: 0 0 0.3rem #80cba8;
-}
-
 .about-profile {
     display: flex;
     margin: 0 auto;
@@ -687,17 +683,12 @@ a, label {
 .about-description {
     position: relative;
     align-self: flex-start;
+        width: 280px;
     text-align: center;
     font-size: 1.9rem;
     color: #363636dc;
     margin: 0;
     grid-area: description;
-}
-
-@media (min-width: 1025px) {
-    .about-description {
-        width: 280px;
-    }
 }
 
 @media (max-width: 1024px) {
@@ -725,7 +716,6 @@ a, label {
     }
 }
 
-
 .about-image .about-rotate-text {
     position: absolute;
     display: block;
@@ -744,6 +734,90 @@ a, label {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.hobby {
+    display: flex;
+    flex-direction: column;
+}
+
+.hobby-swiper {
+    width: 100%;
+    height: 20rem;
+}
+
+.hobby-slide {
+    width: 20rem;
+    height: 100%;
+}
+
+.hobby-swiper-prev {
+    width: 3rem;
+    height: 3rem;
+    background: #ff0000;
+}
+
+.hobby-swiper-next {
+    width: 3rem;
+    height: 3rem;
+    background: #00ffff;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-item {
+}
+
+.experience {
+    /* margin-top: 10rem; */
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    border-left: 2px solid #4cafac;
+    padding: 0 1rem 2rem 1rem;
+    margin-left: 3rem;
+    gap: 1rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: calc(-1rem - 2px);
+        width: 2rem;
+        height: 2rem;
+        background: #fff;
+        border: 2px solid #4cafac;
+        border-radius: 50%;
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+}
+
+.experience-item #title {
+    margin: 0 0 0 2rem;
+    font-size: 2rem;
+}
+
+.experience-item #duration {
+    margin: 0 0 0 3rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.experience-item #description {
+    margin: 0 0 0 3rem;
+    font-size: 1.6rem;
 }
 
 .footer {
@@ -774,7 +848,7 @@ a, label {
     margin: 0;
     padding: 0;
     bottom: 2rem;
-    left: 2rem;
+    right: 2rem;
     width: 8rem;
     height: 8rem;
     border-radius: 50%;

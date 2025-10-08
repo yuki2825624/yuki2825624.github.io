@@ -15,6 +15,8 @@
     <link rel="icon" href="./assets/icon.png" type="image/png">
     <link rel="shortcut icon" href="./assets/icon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
@@ -73,7 +75,135 @@
     <main class="main-content">
         <div class="inner">
             <div class="introduction">
-                <!-- <h1 class="title">About</h1> -->
+                <h1 class="title">About</h1>
+                <div class="hobby">
+                    <h2 class="content-title">Hobby</h2>
+                    <div class="hobby-swiper swiper">
+                        <div class="hobby-swiper-wrapper swiper-wrapper">
+                            <div class="hobby-slide swiper-slide">Slide 1</div>
+                            <div class="hobby-slide swiper-slide">Slide 2</div>
+                            <div class="hobby-slide swiper-slide">Slide 3</div>
+                        </div>
+                    </div>
+                    <div class="hobby-swiper-pagination"></div>
+                    <div class="hobby-swiper-prev"></div>
+                    <div class="hobby-swiper-next"></div>
+                    <div class="hobby-swiper-scrollbar"></div>
+                </div>
+                <div class="skills">
+                    <h2 class="content-title">Skills</h2>
+                    <div class="skill-item">
+                        <p class="skill-description"></p>
+                    </div>
+                </div>
+                <div class="experience">
+                    <h2 class="content-title">Experience</h2>
+                    <div class="experience-item">
+                        <h4 id="title">生誕</h4>
+                        <p id="duration">2008/11/28</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">マインクラフト始める</h4>
+                        <p id="duration">2017</p>
+                        <p id="description">統合版マインクラフトをスイッチで始めた。少しして、コマンド等を触り始めた。</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">中学校入学</h4>
+                        <p id="duration">2021/4</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">バスケットボール部</h4>
+                        <p id="duration">2021/4 - 2023/2</p>
+                        <p id="description">走るのは好きだったが、球技が大の苦手。今も球技はトラウマ。</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">マインクラフト鯖を運営し始める</h4>
+                        <p id="duration">2022/7</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">パソコンを購入する</h4>
+                        <p id="duration">2022/10</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">プログラミングを始める</h4>
+                        <p id="duration">2022/12</p>
+                        <p id="description">マインクラフトの統合版のScriptAPIに興味を持ち、プログラミングを始める。<br>主にJavaScriptを用いてプログラミングを行っていた。</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">discord.jsを触り始める</h4>
+                        <p id="duration">2023/2</p>
+                        <p id="description">DiscordBotを作るべくアマゾンの奥地へと向かった。</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">Licu作成</h4>
+                        <p id="duration">2023/11</p>
+                        <p id="description">Discordの多機能Botを作成し始める。</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">ブルーアーカイブ始める</h4>
+                        <p id="duration">2023/11</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">高校入学</h4>
+                        <p id="duration">2024/4</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">プログラミング能力検定JavaScriptレベル6</h4>
+                        <p id="duration">2024/5</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">情報技術検定2級</h4>
+                        <p id="duration">2024/6</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">テトリス作成</h4>
+                        <p id="duration">2024/8</p>
+                        <p id="description">HTML/CSSを学び、ウェブ制作の楽しさを知る。</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">プログラミング能力検定Pythonレベル6</h4>
+                        <p id="duration">2024/10</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">文章入力スピード認定試験1級</h4>
+                        <p id="duration">2024/11</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">計算技術検定2級</h4>
+                        <p id="duration">2024/11</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">DJMAX RESPECT V始める</h4>
+                        <p id="duration">2024/12</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">情報技術検定1級</h4>
+                        <p id="duration">2024/1</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">プログラミング能力検定Javaレベル6</h4>
+                        <p id="duration">2025/5</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">情報セキュリティマネジメント試験</h4>
+                        <p id="duration">2025/5</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">計算技術検定1級</h4>
+                        <p id="duration">2025/6</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">数学検定2級</h4>
+                        <p id="duration">2025/8</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">基本情報技術者試験</h4>
+                        <p id="duration">2025/8</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 id="title">現在</h4>
+                    </div>
+                </div>
             </div>
             <div class="footer">
                 <footer class="license">
