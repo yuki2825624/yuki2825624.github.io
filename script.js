@@ -47,22 +47,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000 / (360 / 30));
     });
 });
-
-// About - Hobby のSwiper
-document.addEventListener("DOMContentLoaded", () => {
-    const swiper = new Swiper(".hobby-swiper", {
-        direction: "horizontal",
-        loop: true,
-        slidesPerView: 1.5,
-        pagination: {
-            el: ".hobby-swiper-pagination"
-        },
-        navigation: {
-            nextEl: ".hobby-swiper-next",
-            prevEl: ".hobby-swiper-prev"
-        },
-        scrollbar: {
-            el: ".hobby-swiper-scrollbar"
-        }
-    });
-});
