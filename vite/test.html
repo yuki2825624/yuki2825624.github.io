@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>yuki2825624</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="yuki2825624 Portfolio">
+    <meta property="og:title" content="yuki2825624 Portfolio - Test">
+    <meta property="og:description" content="yukiのポートフォリオ用のサイトです。">
+    <meta property="og:url" content="https://yuki2825624.github.io/test.html">
+    <meta property="og:image" content="https://yuki2825624.github.io/assets/icon.png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <link rel="icon" href="/src/assets/icon.png" type="image/png">
+    <link rel="shortcut icon" href="/src/assets/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script type="module" src="/src/main.ts"></script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/" class="header-logo">
+            <img src="/src/assets/icon.png" alt="yuki2825624" loading="lazy">
+        </a>
+        <div class="frame"></div>
+        <input id="menu-button-active" type="checkbox" hidden />
+        <label class="menu-button" for="menu-button-active">
+            <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+                <g>
+                    <polygon points="399.996,307.615 402.167,311.695 472.621,274.205 475.470,356.424 545.253,400 475.470,443.576 472.621,525.795 399.996,487.153 327.371,525.795 324.523,443.576 254.746,400 324.523,356.424 327.371,274.205 399.996,312.847 402.167,311.695 399.996,307.615 402.167,303.54 318.650,259.104 315.460,351.191 237.303,400 315.460,448.81 318.650,540.896 399.996,497.619 481.343,540.896 484.532,448.81 562.689,400 484.532,351.191 481.343,259.104 397.825,303.54 399.996,307.615 402.167,303.54" />
+                    <polygon points="399.996,224.883 402.167,228.957 541.569,154.789 547.126,315.055 683.143,400 547.126,484.945 541.569,645.211 399.996,569.89 258.423,645.211 252.867,484.945 116.850,400 252.867,315.055 258.423,154.789 399.996,230.11 402.167,228.957 399.996,224.883 402.167,220.803 249.702,139.682 243.804,309.822 99.407,400 243.804,490.178 249.702,660.318 399.996,580.356 550.290,660.318 556.188,490.178 700.585,400 556.188,309.822 550.290,139.682 397.825,220.803 399.996,224.883 402.167,220.803" />
+                    <polyline points="395.380,2 395.380,798 404.613,798 404.613,2" />
+                    <polyline points="53.007,205.001 742.368,603.001 746.986,595 57.624,196.999" />
+                    <polyline points="57.624,603.001 746.986,205.001 742.368,196.999 53.007,595" />
+                    <polygon points="632.418,696.582 637.932,537.371 773.052,452.993 768.161,445.156 628.868,532.138 623.184,696.259" />
+                    <polygon points="259.362,749.569 399.996,674.748 540.630,749.569 544.972,741.415 399.996,664.282 255.026,741.415" />
+                    <polygon points="26.947,452.993 162.061,537.371 167.574,696.582 176.808,696.259 171.124,532.138 31.838,445.156" />
+                    <polygon points="167.574,103.424 162.061,262.629 26.947,347.007 31.838,354.844 171.124,267.862 176.808,103.741 167.581,103.424" />
+                    <polygon points="540.630,50.431 399.996,125.259 259.362,50.431 255.026,58.585 399.996,135.724 544.972,58.585" />
+                    <polygon points="773.052,347.007 637.932,262.629 632.418,103.424 623.184,103.741 628.868,267.862 768.161,354.844" />
+                </g>
+            </svg>
+            <svg id="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <line x1="20" y1="20" x2="80" y2="80" />
+                <line x1="80" y1="20" x2="20" y2="80" />
+            </svg>
+        </label>
+        <label class="menu-overlay" for="menu-button-active"></label>
+        <div class="menu">
+            <nav class="navigation-container">
+                <ul class="navigation-selection">
+                    <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="/work.html"><i class="fa fa-book"></i> Work</a></li>
+                    <li><a href="/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+                    <!-- <li><a href="/tetris/index.html" target="_blank"><i class="fa fa-tint"></i> Test</a></li> -->
+                </ul>
+            </nav>
+            <div class="social-container">
+                <p class="social-text">Social</p>
+                <ul class="social-list">
+                    <li><a href="https://qiita.com/yuki2825624" target="_blank"><i class="fas fa-file-alt"></i></a></li>
+                    <li><a href="https://github.com/yuki2825624" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                    <li><a href="https://twitter.com/yuki2825624" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="https://steamcommunity.com/profiles/76561199384039065/" target="_blank"><i class="fa-brands fa-steam"></i></a></li>
+                    <li><a href="https://discord.com/users/964310223235993690" target="_blank"><i class="fa-brands fa-discord"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <div class="inner">
+            <div class="introduction">
+                <svg style="display: none;">
+                    <symbol id="camera" viewBox="0 0 800 800">
+                        <g>
+                            <polygon points="399.996,307.615 402.167,311.695 472.621,274.205 475.470,356.424 545.253,400 475.470,443.576 472.621,525.795 399.996,487.153 327.371,525.795 324.523,443.576 254.746,400 324.523,356.424 327.371,274.205 399.996,312.847 402.167,311.695 399.996,307.615 402.167,303.54 318.650,259.104 315.460,351.191 237.303,400 315.460,448.81 318.650,540.896 399.996,497.619 481.343,540.896 484.532,448.81 562.689,400 484.532,351.191 481.343,259.104 397.825,303.54 399.996,307.615 402.167,303.54" />
+                            <polygon points="399.996,224.883 402.167,228.957 541.569,154.789 547.126,315.055 683.143,400 547.126,484.945 541.569,645.211 399.996,569.89 258.423,645.211 252.867,484.945 116.850,400 252.867,315.055 258.423,154.789 399.996,230.11 402.167,228.957 399.996,224.883 402.167,220.803 249.702,139.682 243.804,309.822 99.407,400 243.804,490.178 249.702,660.318 399.996,580.356 550.290,660.318 556.188,490.178 700.585,400 556.188,309.822 550.290,139.682 397.825,220.803 399.996,224.883 402.167,220.803" />
+                            <polyline points="395.380,2 395.380,798 404.613,798 404.613,2" />
+                            <polyline points="53.007,205.001 742.368,603.001 746.986,595 57.624,196.999" />
+                            <polyline points="57.624,603.001 746.986,205.001 742.368,196.999 53.007,595" />
+                            <polygon points="632.418,696.582 637.932,537.371 773.052,452.993 768.161,445.156 628.868,532.138 623.184,696.259" />
+                            <polygon points="259.362,749.569 399.996,674.748 540.630,749.569 544.972,741.415 399.996,664.282 255.026,741.415" />
+                            <polygon points="26.947,452.993 162.061,537.371 167.574,696.582 176.808,696.259 171.124,532.138 31.838,445.156" />
+                            <polygon points="167.574,103.424 162.061,262.629 26.947,347.007 31.838,354.844 171.124,267.862 176.808,103.741 167.581,103.424" />
+                            <polygon points="540.630,50.431 399.996,125.259 259.362,50.431 255.026,58.585 399.996,135.724 544.972,58.585" />
+                            <polygon points="773.052,347.007 637.932,262.629 632.418,103.424 623.184,103.741 628.868,267.862 768.161,354.844" />
+                        </g>
+                    </symbol>
+                </svg>
+
+                <svg>
+                    <use href="#camera"></use>
+                </svg>
+                <svg>
+                    <use href="#camera"></use>
+                </svg>
+                <svg>
+                    <use href="#camera"></use>
+                </svg>
+            </div>
+            <div class="footer">
+                <footer class="license">
+                    <p>Copyright &copy; 2024 - 2025 yuki2825624. All Rights Reserved.</p>
+                </footer>
+            </div>
+        </div>
+        <button class="top-button" onclick="window.scrollTo(0, 0)">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                <path d="M6 15L12 9L18 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+    </main>
+</body>
+
+</html>

@@ -1,3 +1,10 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+
+@layer theme, components, utilities;
+/* @import "tailwindcss/base.css" layer(base); */ /* Tailwindのpreflightは使用しない */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
 :root {
     --body-background: #bbe1cc;
     --header-logo-background: #e4fff091;
@@ -122,7 +129,7 @@ label {
     opacity: 0;
     transform: scale(0);
     transition: opacity 0.4s, transform 0.4s;
-    stroke: var(--menu-button-color); 
+    stroke: var(--menu-button-color);
     stroke-width: 5;
     stroke-linecap: round;
 }
@@ -230,7 +237,6 @@ label {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .navigation-selection {
@@ -697,7 +703,7 @@ label {
 .about-description {
     position: relative;
     align-self: flex-start;
-        width: 280px;
+    width: 280px;
     text-align: center;
     font-size: 1.9rem;
     color: #363636dc;
@@ -760,8 +766,7 @@ label {
     flex-direction: column;
 }
 
-.skill-item {
-}
+.skill-item {}
 
 .experience {
     /* margin-top: 10rem; */

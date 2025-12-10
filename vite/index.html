@@ -9,14 +9,12 @@
     <meta property="og:title" content="yuki2825624 Portfolio">
     <meta property="og:description" content="yukiのポートフォリオ用のサイトです。">
     <meta property="og:url" content="https://yuki2825624.github.io/">
-    <meta property="og:image" content="https://yuki2825624.github.io/assets/icon.png">
+    <meta property="og:image" content="https://yuki2825624.github.io/src/assets/icon.png">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="600">
-    <link rel="icon" href="./assets/icon.png" type="image/png">
-    <link rel="shortcut icon" href="./assets/icon.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+    <link rel="icon" href="/src/assets/icon.png" type="image/png">
+    <link rel="shortcut icon" href="/src/assets/icon.png" type="image/png">
+    <script type="module" src="/src/main.ts"></script>
 </head>
 
 <body>
@@ -49,10 +47,10 @@
         <div class="menu">
             <nav class="navigation-container">
                 <ul class="navigation-selection">
-                    <li><a href="./index.html"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="./work.html"><i class="fa fa-book"></i> Work</a></li>
-                    <li><a href="./about.html"><i class="fa fa-info-circle"></i> About</a></li>
-                    <!-- <li><a href="./tetris/index.html" target="_blank"><i class="fa fa-tint"></i> Test</a></li> -->
+                    <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="/work.html"><i class="fa fa-book"></i> Work</a></li>
+                    <li><a href="/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+                    <!-- <li><a href="/tetris/index.html" target="_blank"><i class="fa fa-tint"></i> Test</a></li> -->
                 </ul>
             </nav>
             <div class="social-container">
@@ -73,10 +71,10 @@
             <div class="sidebar-scroll">
                 <nav class="navigation-container">
                     <ul class="navigation-selection">
-                        <li><a href="./index.html"><i class="fa fa-home"></i> Home</a></li>
-                        <li><a href="./work.html"><i class="fa fa-book"></i> Work</a></li>
-                        <li><a href="./about.html"><i class="fa fa-info-circle"></i> About</a></li>
-                        <!-- <li><a href="./tetris/index.html" target="_blank"><i class="fa fa-tint"></i> Test</a></li> -->
+                        <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="/work.html"><i class="fa fa-book"></i> Work</a></li>
+                        <li><a href="/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+                        <!-- <li><a href="/tetris/index.html" target="_blank"><i class="fa fa-tint"></i> Test</a></li> -->
                     </ul>
                 </nav>
                 <div class="social-container">
@@ -94,7 +92,7 @@
         <div class="inner">
             <div class="introduction">
                 <div class="profile">
-                    <img class="profile-icon" src="./assets/icon.png" alt="yuki2825624" loading="lazy">
+                    <img class="profile-icon" src="/src/assets/icon.png" alt="yuki2825624" loading="lazy">
                     <div class="profile-name">
                         <p id="name">yuki</p>
                         <p id="id">@yuki2825624</p>
@@ -117,7 +115,7 @@
                     <h2 class="content-title">Work</h2>
                     <div class="work-list">
                         <div class="work-item">
-                            <a href="work/licu.html"><img class="work-item-image" src="assets/work/licu.png" alt="licu" loading="lazy"></a>
+                            <a href="work/licu.html"><img class="work-item-image" src="/src/assets/work/licu.png" alt="licu" loading="lazy"></a>
                             <div class="work-item-remarks">
                                 <h3 id="title">Licu（りつ）</h3>
                                 <p id="description">
@@ -127,7 +125,7 @@
                                     <a href="https://discord.com/" target="_blank">Discord</a>
                                     <a href="https://discord.com/developers/docs/intro" target="_blank">Bot</a>
                                 </div>
-                                <a id="detail-link" href="./work/licu.html">詳しく見る <i class="fa-solid fa-right-long"></i></a>
+                                <a id="detail-link" href="/work/licu.html">詳しく見る <i class="fa-solid fa-right-long"></i></a>
                             </div>
                         </div>
                         <div class="work-item">
@@ -141,9 +139,9 @@
                                 <div id="tags">
                                     <a target="_blank">Webゲーム</a>
                                 </div>
-                                <a id="detail-link" href="./tetris/index.html">詳しく見る <i class="fa-solid fa-right-long"></i></a>
+                                <a id="detail-link" href="/tetris/index.html">詳しく見る <i class="fa-solid fa-right-long"></i></a>
                             </div>
-                            <a href="./tetris/index.html"><img class="work-item-image" src="./assets/work/tetris.png" alt="tetris" loading="lazy"></a>
+                            <a href="/tetris/index.html"><img class="work-item-image" src="/src/assets/work/tetris.png" alt="tetris" loading="lazy"></a>
                         </div>
                     </div>
                     <div class="view-all">
@@ -168,8 +166,8 @@
                             <p class="about-description typing" data-text="中学生の頃からプログラミングを始め、今ではフロントエンドやバックエンドなどの分野で開発を行っている。;;少し前までは、統合版MinecraftでのScriptAPIを使用したアドオンの開発に勤しんでいた。;;時にはQiitaで技術関連の記事を低頻度で投稿している。"></p>
                         </div>
                         <div class="about-image">
-                            <img class="about-icon" src="./assets/icon.png" alt="yuki2825624" loading="lazy">
-                            <img class="about-rotate-text" src="./assets/about-text.png">
+                            <img class="about-icon" src="/src/assets/icon.png" alt="yuki2825624" loading="lazy">
+                            <img class="about-rotate-text" src="/src/assets/about-text.png" loading="lazy">
                         </div>
                     </div>
                     <div class="view-all">
