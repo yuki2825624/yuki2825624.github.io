@@ -1,0 +1,27 @@
+{
+  "name": "astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^8.1.2",
+    "@iconify-json/fa6-brands": "^1.2.6",
+    "@iconify-json/fa6-solid": "^1.2.4",
+    "@iconify-json/simple-icons": "^1.2.86",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^6.4.6",
+    "astro-icon": "^1.1.5",
+    "sharp": "^0.34.2",
+    "svelte": "^5.53.12",
+    "swiper": "^12.1.2",
+    "tailwindcss": "^4.2.1",
+    "tailwindcss-pattern": "^0.1.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,13 @@
+---
+export interface Props {
+    href: string;
+    icon: string;
+    alt: string;
+}
+
+const { href, icon, alt } = Astro.props;
+---
+
+<a href={href} target="_blank" class="bg-button p-2.5 rounded-full w-10 h-10 shadow-button cursor-pointer duration-400 hover:-translate-y-1/8">
+    <img src={icon} alt={alt} loading="lazy" />
+</a>

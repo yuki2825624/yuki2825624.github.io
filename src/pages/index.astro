@@ -1,0 +1,127 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "@/layouts/Layout.astro";
+import SocialIcon from "@/components/SocialIcon.astro";
+---
+
+<Layout title="Home" showNav={true}>
+    <div class="w-full p-4 grid grid-cols-[auto_1fr] justify-start rounded-2xl border-main border-4 shadow-md gap-2">
+        <img class="row-span-4 w-32 h-32" src="./assets/icon.png" alt="yuki2825624" loading="lazy" />
+        <div class="mt-3">
+            <p class="text-3xl text-black">yuki</p>
+            <p class="text-lg mt-1">@yuki2825624</p>
+        </div>
+        <div class="flex gap-1 items-center text-md">
+            <Icon name="fa6-solid:cake-candles" />
+            <p>2008.11.28</p>
+        </div>
+        <div class="text-lg">
+            <p>
+                学生。JavaScript / TypeScript を好む。
+                <br />
+                普段はウェブサイトのフロントエンド、バックエンドの開発、また、統合版Minecraftアドオン、DiscordのBot、稀にゲームなどの開発をしている。
+                <br />
+                気分では記事の執筆もしている。
+                <br />
+                最近の趣味は将棋、囲碁やチェスなど。
+            </p>
+        </div>
+        <div class="flex gap-6">
+            <SocialIcon href="https://qiita.com/yuki2825624" icon="/assets/qiita.png" alt="qiita" />
+            <SocialIcon href="https://x.com/yuki2825624" icon="/assets/x.png" alt="x" />
+            <SocialIcon href="https://github.com/yuki2825624" icon="/assets/github.png" alt="github" />
+            <SocialIcon href="https://discord.com/users/964310223235993690" icon="/assets/discord.png" alt="discord" />
+            <SocialIcon href="https://steamcommunity.com/profiles/76561199384039065/" icon="/assets/steam.png" alt="steam" />
+        </div>
+    </div>
+    <div class="pt-36 pb-24 px-8 border-t border-b border-divider">
+        <div class="flex flex-col gap-24">
+            <div class="flex items-center gap-6 text-line">
+                <span class="min-h-0.5 max-h-0.5 w-54 bg-line shadow-3xl"></span>
+                <h2 class="text-5xl font-thin">Work</h2>
+            </div>
+            <div class="flex flex-col items-center gap-16">
+                <div class="flex justify-around items-center w-full lg:w-162 xl:w-4xl">
+                    <img src="/assets/work/licu.png" alt="licu" class="h-60 object-cover transition-transform duration-300 ease-out hover:scale-105" />
+                    <div class="flex flex-col gap-2 text-lg w-67">
+                        <h3 class="text-3xl text-black">Licu（りつ）</h3>
+                        <p class="mt-4">Discordの多機能Bot</p>
+                        <div class="opacity-50">
+                            <a href="https://discord.com/" target="_blank"># Discord</a>
+                            <a href="https://discord.com/developers/docs/intro" target="_blank"># Bot</a>
+                        </div>
+                        <a href="/work/licu" class="relative flex w-fit items-center gap-2 after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-current after:duration-300 hover:after:w-full">
+                            <p>詳しく見る</p>
+                            <Icon name="fa6-solid:up-right-from-square" />
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-around items-center w-full lg:w-162 xl:w-4xl">
+                    <div class="flex flex-col gap-2 text-lg w-67">
+                        <h3 class="text-3xl text-black">Tetris (テトリス)</h3>
+                        <p class="mt-4">
+                            Web版のテトリス
+                            <br />
+                            サイト作成の練習で作成したものの、当初JavaScriptの知識しかなく、9割がJavaScriptで作成されたテトリス
+                        </p>
+                        <div class="opacity-50">
+                            <p># Webゲーム</p>
+                        </div>
+                        <a href="/work/licu" class="relative flex w-fit items-center gap-2 after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-current after:duration-300 hover:after:w-full">
+                            <p>詳しく見る</p>
+                            <Icon name="fa6-solid:up-right-from-square" />
+                        </a>
+                    </div>
+                    <img src="/assets/work/tetris.png" alt="licu" class="h-60 object-cover transition-transform duration-300 ease-out hover:scale-105" />
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <a href="/work" class="flex items-center w-54 p-1.5 border-2 border-line rounded-full text-center">
+                    <p class="flex-1 m-0 text-sm text-gray-800">全て見る</p>
+                    <div class="relative flex items-center justify-center w-12 h-12 rounded-full border-2 border-green-500 bg-white text-white transition-all duration-500 group hover:bg-green-500 hover:text-white">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-500 transition-all duration-400 group-hover:text-white group-hover:rotate-90">
+                            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-col gap-24 mt-20">
+            <div class="flex items-center gap-6 text-line">
+                <span class="min-h-0.5 max-h-0.5 w-54 bg-line shadow-3xl"></span>
+                <h2 class="text-5xl font-thin">About</h2>
+            </div>
+            <div class="flex mt-20 justify-center gap-16">
+                <div>
+                    <div class="flex flex-col items-center">
+                        <p class="text-3xl text-black">yuki</p>
+                        <p class="text-lg">@yuki2825624</p>
+                    </div>
+                    <p class="w-70 text-lg mt-6">
+                        中学生の頃からプログラミングを始め、今ではフロントエンドやバックエンドなどの分野で開発を行っている。
+                        <br />
+                        <br />
+                        少し前までは、統合版MinecraftでのScriptAPIを使用したアドオンの開発に勤しんでいた。
+                        <br />
+                        <br />
+                        時にはQiitaで技術関連の記事を低頻度で投稿している。
+                    </p>
+                </div>
+                <div class="relative">
+                    <img class="w-80 h-80" src="./assets/icon.png" alt="yuki2825624" loading="lazy" />
+                    <img class="absolute block w-60 h-60 right-0 top-0 animate-[rotate_20s_linear_infinite]" src="./assets/about-text.png" />
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <a href="/about" class="flex items-center w-54 p-1.5 border-2 border-line rounded-full text-center">
+                    <p class="flex-1 m-0 text-sm text-gray-800">全て見る</p>
+                    <div class="relative flex items-center justify-center w-12 h-12 rounded-full border-2 border-green-500 bg-white text-white transition-all duration-500 group hover:bg-green-500 hover:text-white">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-500 transition-all duration-400 group-hover:text-white group-hover:rotate-90">
+                            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</Layout>

@@ -1,0 +1,17 @@
+---
+export interface Props {
+    href?: string;
+    glow?: string;
+}
+
+const { href, glow } = Astro.props;
+---
+
+<a href={href} target="_blank" class=`relative select-none duration-200 isolate group ${href ? "cursor-pointer" : ""}` style=`${glow ? "--glow: " + glow + ";" : ""}`>
+    <!-- <span class="absolute inset-0 rounded-lg opacity-0 blur-2xl duration-300 group-hover:opacity-100 bg-(--glow) -z-10"></span> -->
+    <div class="bg-white px-1 py-2 flex items-center border border-line rounded-lg duration-300 group-hover:border-(--glow) group-hover:text-(--glow)">
+        <span class="flex gap-1 z-10">
+            <slot />
+        </span>
+    </div>
+</a>

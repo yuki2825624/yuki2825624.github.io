@@ -1,0 +1,334 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SocialIcon from "@/components/SocialIcon.astro";
+import SkillItem from "@/components/about/SkillItem.astro";
+import ExperienceItem from "@/components/about/ExperienceItem.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    for (const id of ["skill-programming", "skill-web", "skill-tool"]) {
+        const element = document.getElementById(id) as HTMLDivElement;
+        if (!(element instanceof HTMLDivElement)) continue;
+        const children = element.children;
+        const origin = children.item(0);
+        if (!(origin instanceof HTMLDivElement)) return;
+        let state = false;
+        origin.addEventListener("click", () => {
+            if (state) return;
+            state = true;
+            for (let i = 1; i < children.length; i++) {
+                const item = children.item(i);
+                if (!(item instanceof HTMLAnchorElement)) return;
+                setTimeout(() => {
+                    item.classList.add("-translate-y-2");
+                    setTimeout(() => {
+                        item.classList.remove("-translate-y-2");
+                    }, 140);
+                }, (i - 1) * 80);
+            }
+            setTimeout(() => state = false, children.length * 80);
+        });
+    }
+});
+
+</script>
+
+<Layout title="About" showLogo={true}>
+    <div class="mt-32 w-full flex flex-col gap-10">
+        <h1 class="text-center flex flex-col">
+            <p class="text-5xl font-light tracking-[1rem]">PROFILE</p>
+            <span class="text-sm tracking-[1rem]">プロフィール</span>
+        </h1>
+        <div class="w-full lg:w-180 grid grid-cols-[auto_auto_1fr] mx-auto gap-2">
+            <img class="w-32 h-32" src="./assets/icon.png" alt="yuki2825624" loading="lazy" />
+            <div class="flex flex-col gap-2">
+                <div class="mt-3">
+                    <p class="text-3xl text-black">yuki</p>
+                    <p class="text-lg mt-1">@yuki2825624</p>
+                </div>
+                <div class="flex gap-1 items-center text-md">
+                    <Icon name="fa6-solid:cake-candles" />
+                    <p>2008.11.28</p>
+                </div>
+                <div class="flex gap-6">
+                    <SocialIcon href="https://qiita.com/yuki2825624" icon="/assets/qiita.png" alt="qiita" />
+                    <SocialIcon href="https://x.com/yuki2825624" icon="/assets/x.png" alt="x" />
+                    <SocialIcon href="https://github.com/yuki2825624" icon="/assets/github.png" alt="github" />
+                    <SocialIcon href="https://discord.com/users/964310223235993690" icon="/assets/discord.png" alt="discord" />
+                    <SocialIcon href="https://steamcommunity.com/profiles/76561199384039065/" icon="/assets/steam.png" alt="steam" />
+                </div>
+                <p class="cols-span-2 text-emphasis text-sm font-bold">STUDENT / WEB DEVELOPER / MINECRAFT ADDON</p>
+            </div>
+            <div class="flex flex-col w-full ml-2">
+                <div class="border-t border-gray-300 px-2 py-3 flex">
+                    <h3 class="font-semibold min-w-fit">好き</h3>
+                    <p class="ml-2">TypeScript, ネギ</p>
+                </div>
+                <div class="border-t border-gray-300 px-2 py-3 flex">
+                    <h3 class="font-semibold min-w-fit">役割</h3>
+                    <p class="ml-2">フロントエンド開発</p>
+                </div>
+                <div class="border-t border-gray-300 px-2 py-3 flex">
+                    <h3 class="font-semibold min-w-fit">趣味</h3>
+                    <p class="ml-2">ボードゲーム, プログラミング</p>
+                </div>
+                <div class="border-y border-gray-300 px-2 py-3 flex">
+                    <h3 class="font-semibold min-w-fit">MBTI</h3>
+                    <p class="ml-2">INTP-T</p>
+                </div>
+            </div>
+        </div>
+        <div class="w-180 flex flex-col mx-auto">
+            <div class="p-4 grid grid-cols-5 bg-white border-t border-line gap-2" id="skill-programming">
+                <div class="px-1 py-2 text-center rounded-lg bg-gray-600 text-gray-100 cursor-pointer select-none duration-300 hover:scale-105">Programming</div>
+                <SkillItem glow="#f7df1e" href="https://developer.mozilla.org/ja/docs/Web/JavaScript">
+                    <Icon name="simple-icons:javascript" class="w-6 h-6" />
+                    <p>JavaScript</p>
+                </SkillItem>
+                <SkillItem glow="#3178c6" href="https://www.typescriptlang.org/ja/">
+                    <Icon name="simple-icons:typescript" class="w-6 h-6" />
+                    <p>TypeScript</p>
+                </SkillItem>
+                <SkillItem glow="#306998" href="https://www.python.org/">
+                    <Icon name="simple-icons:python" class="w-6 h-6" />
+                    <p>Python</p>
+                </SkillItem>
+                <SkillItem glow="#b07219" href="https://www.java.com/ja/">
+                    <Icon name="simple-icons:openjdk" class="w-6 h-6" />
+                    <p>Java</p>
+                </SkillItem>
+                <SkillItem glow="#5555ff">
+                    <Icon name="simple-icons:c" class="w-6 h-6" />
+                    <p>C</p>
+                </SkillItem>
+                <SkillItem glow="#9a4eae" href="https://dotnet.microsoft.com/ja-jp/languages/csharp">
+                    <Icon name="simple-icons:csharp" class="w-6 h-6" />
+                    <p>C#</p>
+                </SkillItem>
+                <SkillItem glow="#dea584" href="https://www.rust-lang.org/ja">
+                    <Icon name="simple-icons:rust" class="w-6 h-6" />
+                    <p>Rust</p>
+                </SkillItem>
+            </div>
+            <div class="p-4 grid grid-cols-5 bg-white border-t border-line gap-2" id="skill-web">
+                <div class="px-1 py-2 text-center rounded-lg bg-gray-600 text-gray-100 cursor-pointer select-none duration-300 hover:scale-105">Web</div>
+                <SkillItem glow="#e44d26">
+                    <Icon name="simple-icons:html5" class="w-6 h-6" />
+                    <p>HTML</p>
+                </SkillItem>
+                <SkillItem glow="#264de4">
+                    <Icon name="simple-icons:css" class="w-6 h-6" />
+                    <p>CSS</p>
+                </SkillItem>
+                <SkillItem glow="#646cff" href="https://vite.dev/">
+                    <Icon name="simple-icons:vite" class="w-6 h-6" />
+                    <p>Vite</p>
+                </SkillItem>
+                <SkillItem glow="#ff5d01" href="https://astro.build/">
+                    <Icon name="simple-icons:astro" class="w-6 h-6" />
+                    <p>Astro</p>
+                </SkillItem>
+                <SkillItem glow="#ff3e00" href="https://svelte.dev/">
+                    <Icon name="simple-icons:svelte" class="w-6 h-6" />
+                    <p>Svelte</p>
+                </SkillItem>
+                <SkillItem glow="#42b883" href="https://vuejs.org/">
+                    <Icon name="simple-icons:vuedotjs" class="w-6 h-6" />
+                    <p>Vue.js</p>
+                </SkillItem>
+                <SkillItem glow="#00dc82" href="https://nuxt.com/">
+                    <Icon name="simple-icons:nuxtdotjs" class="w-6 h-6" />
+                    <p>Nuxt.js</p>
+                </SkillItem>
+                <SkillItem glow="#61dafb" href="https://react.dev/">
+                    <Icon name="simple-icons:react" class="w-6 h-6" />
+                    <p>React</p>
+                </SkillItem>
+                <SkillItem glow="#06b6d4" href="https://tailwindcss.com/">
+                    <Icon name="simple-icons:tailwindcss" class="w-6 h-6" />
+                    <p>TailwindCSS</p>
+                </SkillItem>
+            </div>
+            <div class="p-4 grid grid-cols-5 bg-white border-y border-line gap-2" id="skill-tool">
+                <div class="px-1 py-2 text-center border rounded-lg bg-gray-600 text-gray-100 cursor-pointer select-none duration-300 hover:scale-105">Tool</div>
+                <SkillItem glow="#007acc" href="https://code.visualstudio.com/">
+                    <Icon name="simple-icons:visualstudiocode" class="w-6 h-6" />
+                    <p>VSCode</p>
+                </SkillItem>
+                <SkillItem glow="#5c2d91" href="https://visualstudio.microsoft.com/">
+                    <Icon name="simple-icons:visualstudio" class="w-6 h-6" />
+                    <p>VisualStudio</p>
+                </SkillItem>
+                <SkillItem glow="#fe315d" href="https://www.jetbrains.com/idea/">
+                    <Icon name="simple-icons:intellijidea" class="w-6 h-6" />
+                    <p>IntelliJ IDEA</p>
+                </SkillItem>
+                <SkillItem glow="#339933" href="https://nodejs.org/">
+                    <Icon name="simple-icons:nodedotjs" class="w-6 h-6" />
+                    <p>Node.js</p>
+                </SkillItem>
+                <SkillItem glow="#f05032" href="https://git-scm.com/">
+                    <Icon name="simple-icons:git" class="w-6 h-6" />
+                    <p>Git</p>
+                </SkillItem>
+                <SkillItem glow="#181717" href="https://github.com/">
+                    <Icon name="simple-icons:github" class="w-6 h-6" />
+                    <p>GitHub</p>
+                </SkillItem>
+                <SkillItem glow="#47848f" href="https://www.electronjs.org/ja/">
+                    <Icon name="simple-icons:electron" class="w-6 h-6" />
+                    <p>Electron</p>
+                </SkillItem>
+                <SkillItem glow="#24c8db" href="https://tauri.app/ja/">
+                    <Icon name="simple-icons:tauri" class="w-6 h-6" />
+                    <p>Tauri</p>
+                </SkillItem>
+                <SkillItem glow="#000000" href="https://unity.com/ja/">
+                    <Icon name="simple-icons:unity" class="w-6 h-6" />
+                    <p>Unity</p>
+                </SkillItem>
+            </div>
+        </div>
+    </div>
+    <div class="mt-32 mb-24 w-full flex flex-col gap-10">
+        <h1 class="text-center flex flex-col">
+            <p class="text-5xl font-light tracking-[1rem]">ACHIEVEMENT</p>
+            <span class="text-sm tracking-[1rem]">実績</span>
+        </h1>
+        <div class="w-full lg:w-200 mx-auto grid grid-cols-2 gap-4">
+            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
+                <p class="text-emphasis">プログラミング能力検定JavaScriptレベル6</p>
+                <p class="text-sm opacity-80">
+                    <span>取得:</span>
+                    <span>2024.5</span>
+                </p>
+            </div>
+            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
+                <p class="text-emphasis">プログラミング能力検定Pythonレベル6</p>
+                <p class="text-sm opacity-80">
+                    <span>取得:</span>
+                    <span>2024.10</span>
+                </p>
+            </div>
+            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
+                <p class="text-emphasis">プログラミング能力検定Javaレベル6</p>
+                <p class="text-sm opacity-80">
+                    <span>取得:</span>
+                    <span>2025.5</span>
+                </p>
+            </div>
+            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
+                <p class="text-emphasis">文章入力スピード認定試験1級</p>
+                <p class="text-sm opacity-80">
+                    <span>取得:</span>
+                    <span>2024.11</span>
+                </p>
+            </div>
+            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
+                <p class="text-emphasis">情報技術検定1級</p>
+                <p class="text-sm opacity-80">
+                    <span>取得:</span>
+                    <span>2025.1</span>
+                </p>
+            </div>
+            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
+                <p class="text-emphasis">計算技術検定1級</p>
+                <p class="text-sm opacity-80">
+                    <span>取得:</span>
+                    <span>2025.6</span>
+                </p>
+            </div>
+            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
+                <p class="text-emphasis">情報セキュリティマネジメント試験</p>
+                <p class="text-sm opacity-80">
+                    <span>取得:</span>
+                    <span>2025.5</span>
+                </p>
+            </div>
+            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
+                <p class="text-emphasis">基本情報技術者試験</p>
+                <p class="text-sm opacity-80">
+                    <span>取得:</span>
+                    <span>2025.8</span>
+                </p>
+            </div>
+            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
+                <p class="text-emphasis">数学検定2級</p>
+                <p class="text-sm opacity-80">
+                    <span>取得:</span>
+                    <span>2025.8</span>
+                </p>
+            </div>
+            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
+                <p class="text-emphasis">ジュニアマイスター特別表彰</p>
+                <p class="text-sm opacity-80">
+                    <span>取得:</span>
+                    <span>2026.3</span>
+                </p>
+            </div>
+        </div>
+        <div class="w-full flex flex-col mt-10 p-4 py-10 mx-auto gap-4 bg-sub pattern-grid-md pattern-color-gray-100">
+            <span class="relative w-full h-0.5 my-3 bg-line after:content-['2008'] after:font-bold after:text-line after:absolute after:px-2 after:left-1/2 after:-top-3 after:-translate-x-1/2 after:bg-sub"></span>
+            <div class="px-12 flex flex-col gap-7">
+                <ExperienceItem title="生誕" date="2008.11.28"></ExperienceItem>
+                <ExperienceItem title="マインクラフト始める" date="2017">
+                    <p>統合版マインクラフトをスイッチで始めた。少しして、コマンド等を触り始めた。</p>
+                </ExperienceItem>
+                <ExperienceItem title="中学校入学" date="2021.4"></ExperienceItem>
+                <ExperienceItem title="マインクラフト鯖を運営し始める" date="2021.4">
+                    <p>当時整地鯖を統合版マインクラフトで運営し始めた。</p>
+                </ExperienceItem>
+            </div>
+            <span class="relative w-full h-0.5 my-3 bg-line after:content-['2022'] after:font-bold after:text-line after:absolute after:px-2 after:left-1/2 after:-top-3 after:-translate-x-1/2 after:bg-sub"></span>
+            <div class="px-12 flex flex-col gap-7">
+                <ExperienceItem title="パソコンを購入する" date="2022.10"></ExperienceItem>
+                <ExperienceItem title="プログラミングを始める" date="2022.12">
+                    <p>
+                        マインクラフトの統合版のScriptAPIに興味を持ち、プログラミングを始める。
+                        <br>
+                        主にJavaScriptを用いてプログラミングを行っていた。
+                    </p>
+                </ExperienceItem>
+                <ExperienceItem title="discord.jsを触り始める" date="2023.2">
+                    <p>DiscordでBotを作るべくアマゾンの奥地へと向かった。</p>
+                </ExperienceItem>
+                <ExperienceItem title="Licu作成" date="2023.11">
+                    <p>Discordの多機能Botを作成し始める</p>
+                </ExperienceItem>
+            </div>
+            <span class="relative w-full h-0.5 my-3 bg-line after:content-['2024'] after:font-bold after:text-line after:absolute after:px-2 after:left-1/2 after:-top-3 after:-translate-x-1/2 after:bg-sub"></span>
+            <div class="px-12 flex flex-col gap-7">
+                <ExperienceItem title="高校入学" date="2024.4"></ExperienceItem>
+                <ExperienceItem title="プログラミング能力検定JavaScriptレベル6" date="2024.5"></ExperienceItem>
+                <ExperienceItem title="情報技術検定2級" date="2024.6"></ExperienceItem>
+                <ExperienceItem title="サイト作成を始める" date="2024.8">
+                    <p>HTML/CSSを学び、ウェブ制作を始める。</p>
+                </ExperienceItem>
+                <ExperienceItem title="プログラミング能力検定Pythonレベル6" date="2024.10"></ExperienceItem>
+                <ExperienceItem title="文章入力スピード認定試験1級" date="2024.10"></ExperienceItem>
+            </div>
+            <span class="relative w-full h-0.5 my-3 bg-line after:content-['2025'] after:font-bold after:text-line after:absolute after:px-2 after:left-1/2 after:-top-3 after:-translate-x-1/2 after:bg-sub"></span>
+            <div class="px-12 flex flex-col gap-7">
+                <ExperienceItem title="情報技術検定1級" date="2025.1"></ExperienceItem>
+                <ExperienceItem title="プログラミング能力検定Javaレベル6" date="2025.5"></ExperienceItem>
+                <ExperienceItem title="情報セキュリティマネジメント試験" date="2025.5"></ExperienceItem>
+                <ExperienceItem title="計算技術検定1級" date="2025.6"></ExperienceItem>
+                <ExperienceItem title="数学検定2級" date="2025.8"></ExperienceItem>
+                <ExperienceItem title="基本情報技術者試験" date="2025.8"></ExperienceItem>
+                <ExperienceItem title="スーパーエンジニアプログラミングスクール修了" date="2025.12"></ExperienceItem>
+            </div>
+            <span class="relative w-full h-0.5 my-3 bg-line after:content-['2026'] after:font-bold after:text-line after:absolute after:px-2 after:left-1/2 after:-top-3 after:-translate-x-1/2 after:bg-sub"></span>
+            <div class="px-12 flex flex-col gap-7">
+                <ExperienceItem title="VRChat始める" date="2026.2.16"></ExperienceItem>
+                <ExperienceItem title="現在"></ExperienceItem>
+                <!-- <ExperienceItem title="VRChat 1000時間" date="2026.4.9"></ExperienceItem>
+                <ExperienceItem title="VRChat 2000時間" date="2026.5.30">
+                    <p>（決してここでVRChatにハマって怠けているわけではないです。IPAが変なことをしだすせいです。）</p>
+                </ExperienceItem> -->
+            </div>
+        </div>
+    </div>
+</Layout>

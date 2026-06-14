@@ -1,0 +1,12 @@
+{
+	"files.associations": {
+		"*.css": "tailwindcss",
+		"wrangler.json": "jsonc"
+	},
+	"editor.quickSuggestions": {
+		"other": "offWhenInlineCompletions",
+		"comments": "off",
+		"strings": "on"
+	},
+	"discord.enabled": true
+}

@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon/components";
+import SocialIcon from "@/components/SocialIcon.astro";
+---
+
+<aside class="min-w-sidebar max-w-sidebar min-h-20 sticky top-4 rounded-2xl bg-nav text-on-nav p-2">
+    <div class="flex flex-col gap-6 p-8 text-2xl border-b border-divider">
+        <a class="flex items-center gap-2 p-2 rounded-full duration-300 hover:bg-hover-on-nav hover:scale-105" href="/">
+            <Icon name="fa6-solid:house" class="w-8 h-8" />
+            <p>Home</p>
+        </a>
+        <a class="flex items-center gap-2 p-2 rounded-full duration-300 hover:bg-hover-on-nav hover:scale-105" href="/work">
+            <Icon name="fa6-solid:book" class="w-8 h-8" />
+            <p>Work</p>
+        </a>
+        <a class="flex items-center gap-2 p-2 rounded-full duration-300 hover:bg-hover-on-nav hover:scale-105" href="/about">
+            <Icon name="fa6-solid:circle-info" class="w-8 h-8" />
+            <p>About</p>
+        </a>
+    </div>
+    <div class="flex flex-col gap-4 p-4 text-2xl">
+        <h1>Social</h1>
+        <div class="grid grid-cols-4 gap-4 place-items-center">
+            <SocialIcon href="https://qiita.com/yuki2825624" icon="/assets/qiita.png" alt="qiita" />
+            <SocialIcon href="https://x.com/yuki2825624" icon="/assets/x.png" alt="x" />
+            <SocialIcon href="https://github.com/yuki2825624" icon="/assets/github.png" alt="github" />
+            <SocialIcon href="https://discord.com/users/964310223235993690" icon="/assets/discord.png" alt="discord" />
+            <SocialIcon href="https://steamcommunity.com/profiles/76561199384039065/" icon="/assets/steam.png" alt="steam" />
+        </div>
+    </div>
+</aside>

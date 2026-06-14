@@ -1,0 +1,84 @@
+---
+import { Icon } from "astro-icon/components";
+import SocialIcon from "@/components/SocialIcon.astro";
+
+export interface Props {
+    showLogo?: boolean;
+}
+
+const { showLogo = false } = Astro.props;
+---
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById("menu-button");
+    const check = document.getElementById("menu-active");
+    if (!(button instanceof HTMLElement)) return;
+    if (!(check instanceof HTMLInputElement)) return;
+    
+    // 回転
+    let angle = 0, speed = 1;
+    setInterval(() => {
+        if (!check.checked) {
+            // メニューボタン (常時回転)
+            angle -= speed;
+        } else {
+            // 閉じるボタン (固定)
+            angle = Math.round(angle / 90) * 90;
+        }
+        button.style.transform = `rotate(${angle}deg)`;
+    }, 1000 / (360 / 30)); // 30秒 に 360度 回転
+
+    button.addEventListener("mouseenter", async () => {
+        speed = 75;
+        setTimeout(() => {
+            speed = 1;
+        }, 1000 / (360 / 30));
+    });
+});
+
+</script>
+
+<header class="fixed top-0 left-0 w-full z-10 max-h-0 group">
+    {
+        showLogo && (
+            <a href="/" class="w-20 h-20 m-1 p-2 flex items-center justify-center rounded-full bg-logo z-13">
+                <img class="w-full h-auto rounded-full" src="/assets/icon.png" alt="yuki2825624" loading="lazy" />
+            </a>
+        )
+    }
+    <div class="fixed top-0 left-0 w-full h-2 bg-main after:fixed after:top-0 after:right-0 after:bg-main after:w-32 after:h-32 after:rounded-bl-4xl"></div>
+    <input id="menu-active" type="checkbox" hidden />
+    <label class="flex items-center justify-center fixed top-0 right-0 w-20 h-20 m-6 rounded-full bg-main duration-300 cursor-pointer z-12" id="menu-button" for="menu-active">
+        <img class="absolute duration-400 group-has-[#menu-active:checked]:scale-0 group-has-[#menu-active:checked]:opacity-0" src="/assets/hamburger-open.svg" alt="hamburger" />
+        <img class="absolute duration-400 scale-0 opacity-0 group-has-[#menu-active:checked]:scale-100 group-has-[#menu-active:checked]:opacity-100" src="/assets/hamburger-close.svg" alt="close" />
+    </label>
+    <label class="absolute top-0 left-0 w-screen h-screen bg-black opacity-0 pointer-events-none group-has-[#menu-active:checked]:opacity-30 group-has-[#menu-active:checked]:pointer-events-auto duration-400 z-10" for="menu-active"></label>
+    <div class="absolute top-0 right-0 pt-20 px-6 min-h-screen lg:w-90 bg-main translate-x-full group-has-[#menu-active:checked]:translate-x-0 duration-400 z-11">
+        <div class="flex flex-col gap-6 p-8 text-2xl border-b border-divider">
+            <a class="flex items-center gap-2 p-2 rounded-full duration-300 hover:bg-hover-on-nav hover:scale-105" href="/">
+                <Icon name="fa6-solid:house" class="w-8 h-8" />
+                <p>Home</p>
+            </a>
+            <a class="flex items-center gap-2 p-2 rounded-full duration-300 hover:bg-hover-on-nav hover:scale-105" href="/work">
+                <Icon name="fa6-solid:book" class="w-8 h-8" />
+                <p>Work</p>
+            </a>
+            <a class="flex items-center gap-2 p-2 rounded-full duration-300 hover:bg-hover-on-nav hover:scale-105" href="/about">
+                <Icon name="fa6-solid:circle-info" class="w-8 h-8" />
+                <p>About</p>
+            </a>
+        </div>
+        <div class="flex flex-col gap-4 p-4 text-2xl">
+            <h1>Social</h1>
+            <div class="grid grid-cols-4 gap-4 place-items-center">
+                <SocialIcon href="https://qiita.com/yuki2825624" icon="/assets/qiita.png" alt="qiita" />
+                <SocialIcon href="https://x.com/yuki2825624" icon="/assets/x.png" alt="x" />
+                <SocialIcon href="https://github.com/yuki2825624" icon="/assets/github.png" alt="github" />
+                <SocialIcon href="https://discord.com/users/964310223235993690" icon="/assets/discord.png" alt="discord" />
+                <SocialIcon href="https://steamcommunity.com/profiles/76561199384039065/" icon="/assets/steam.png" alt="steam" />
+            </div>
+        </div>
+    </div>
+</header>

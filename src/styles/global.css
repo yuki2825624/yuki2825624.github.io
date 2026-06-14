@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@plugin "tailwindcss-pattern";
+
+@theme {
+    --color-main: #bbe1cc;
+    --color-on-main: #ffffff;
+
+    --background-image-wrap: linear-gradient(90deg, #2f7c5e 0%, #50a07d 30%, #5ea587 50%, #50a07d 70%, #2f7c5e 100%);
+
+    --color-sub: #ffffff;
+    --color-on-sub: #363636dc;
+
+    --color-sidebar: #bbe1cc;
+    --color-on-sidebar: #ffffff;
+
+    --color-nav: #ffffff11;
+    --color-on-nav: #ffffff;
+    --color-hover-on-nav: #eef5ff4d;
+
+    --color-line: #9abdaa;
+    --color-button: #ffffff;
+
+    --color-logo: #e4fff091;
+    --color-divider: #a0a5a2;
+    --color-emphasis: #80cba8;
+
+    --spacing-sidebar: 16rem;
+
+    --shadow-button: 0px 2px 6px #00000025;
+    
+
+    /* カラー */
+    /* --color-main: #bbe1cc;
+    --color-body-background: var(--color-main);
+    --color-header-logo-background: #e4fff091;
+    --color-menu-button: #f5f5f5;
+    --color-intro-background: #ffffff;
+    --color-title: #80cba8; */
+
+    /* 背景イメージ */
+    /* --background-main-image: linear-gradient(90deg, #2f7c5e 0%, #50a07d 30%, #5ea587 50%, #50a07d 70%, #2f7c5e 100%); */
+
+    /* シャドウ */
+    /* --shadow-content: 0 0 0.3rem #0000001f;
+    --shadow-title: 0 0 0.3rem var(--color-title);
+    --text-shadow-title: 0 0 0.6rem var(--color-title); */
+}
+
+/* @font-face {
+    font-family: "NikukyuMaru";
+    src: url("https://nyashi.jp/font/nikumaru.woff") format("woff");
+} */
+
+html, body {
+    font-family: "Noto Sans JP", sans-serif;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--color-main);
+    color: var(--color-on-main);
+}
+
+@media (max-width: 1024px) {
+    html, body {
+        font-size: 2.0vw;
+    }
+}
