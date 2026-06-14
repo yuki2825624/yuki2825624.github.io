@@ -1,7 +1,7 @@
 ---
 export interface Props {
     title: string;
-    date: string;
+    date?: string;
 }
 
 const { title, date } = Astro.props;
@@ -11,7 +11,7 @@ const { title, date } = Astro.props;
     <div class="w-fit flex flex-col gap-1">
         <div class="font-semibold flex items-center gap-3">
             <p class="font-semibold text-xl">{title}</p>
-            <span class="font-semibold opacity-80">{date}</span>
+            {date && <span class="font-semibold opacity-80">{date}</span>}
         </div>
         <slot />
     </div>
