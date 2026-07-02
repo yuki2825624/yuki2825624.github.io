@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import SocialIcon from "@/components/SocialIcon.astro";
 import SkillItem from "@/components/about/SkillItem.astro";
 import ExperienceItem from "@/components/about/ExperienceItem.astro";
+import AchievementItem from "@/components/about/AchievementItem.astro";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </div>
         <div class="w-180 flex flex-col mx-auto">
-            <div class="p-4 grid grid-cols-5 bg-white border-t border-line gap-2" id="skill-programming">
+            <div class="p-4 grid grid-cols-4 bg-white border-t border-line gap-2" id="skill-programming">
                 <div class="px-1 py-2 text-center rounded-lg bg-gray-600 text-gray-100 cursor-pointer select-none duration-300 hover:scale-105">Programming</div>
                 <SkillItem glow="#f7df1e" href="https://developer.mozilla.org/ja/docs/Web/JavaScript">
                     <Icon name="simple-icons:javascript" class="w-6 h-6" />
@@ -113,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>Rust</p>
                 </SkillItem>
             </div>
-            <div class="p-4 grid grid-cols-5 bg-white border-t border-line gap-2" id="skill-web">
+            <div class="p-4 grid grid-cols-4 bg-white border-t border-line gap-2" id="skill-web">
                 <div class="px-1 py-2 text-center rounded-lg bg-gray-600 text-gray-100 cursor-pointer select-none duration-300 hover:scale-105">Web</div>
                 <SkillItem glow="#e44d26">
                     <Icon name="simple-icons:html5" class="w-6 h-6" />
@@ -152,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>TailwindCSS</p>
                 </SkillItem>
             </div>
-            <div class="p-4 grid grid-cols-5 bg-white border-y border-line gap-2" id="skill-tool">
+            <div class="p-4 grid grid-cols-4 bg-white border-y border-line gap-2" id="skill-tool">
                 <div class="px-1 py-2 text-center border rounded-lg bg-gray-600 text-gray-100 cursor-pointer select-none duration-300 hover:scale-105">Tool</div>
                 <SkillItem glow="#007acc" href="https://code.visualstudio.com/">
                     <Icon name="simple-icons:visualstudiocode" class="w-6 h-6" />
@@ -199,76 +200,16 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="text-sm tracking-[1rem]">実績</span>
         </h1>
         <div class="w-full lg:w-200 mx-auto grid grid-cols-2 gap-4">
-            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
-                <p class="text-emphasis">プログラミング能力検定JavaScriptレベル6</p>
-                <p class="text-sm opacity-80">
-                    <span>取得:</span>
-                    <span>2024.5</span>
-                </p>
-            </div>
-            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
-                <p class="text-emphasis">プログラミング能力検定Pythonレベル6</p>
-                <p class="text-sm opacity-80">
-                    <span>取得:</span>
-                    <span>2024.10</span>
-                </p>
-            </div>
-            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
-                <p class="text-emphasis">プログラミング能力検定Javaレベル6</p>
-                <p class="text-sm opacity-80">
-                    <span>取得:</span>
-                    <span>2025.5</span>
-                </p>
-            </div>
-            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
-                <p class="text-emphasis">文章入力スピード認定試験1級</p>
-                <p class="text-sm opacity-80">
-                    <span>取得:</span>
-                    <span>2024.11</span>
-                </p>
-            </div>
-            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
-                <p class="text-emphasis">情報技術検定1級</p>
-                <p class="text-sm opacity-80">
-                    <span>取得:</span>
-                    <span>2025.1</span>
-                </p>
-            </div>
-            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
-                <p class="text-emphasis">計算技術検定1級</p>
-                <p class="text-sm opacity-80">
-                    <span>取得:</span>
-                    <span>2025.6</span>
-                </p>
-            </div>
-            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
-                <p class="text-emphasis">情報セキュリティマネジメント試験</p>
-                <p class="text-sm opacity-80">
-                    <span>取得:</span>
-                    <span>2025.5</span>
-                </p>
-            </div>
-            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
-                <p class="text-emphasis">基本情報技術者試験</p>
-                <p class="text-sm opacity-80">
-                    <span>取得:</span>
-                    <span>2025.8</span>
-                </p>
-            </div>
-            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
-                <p class="text-emphasis">数学検定2級</p>
-                <p class="text-sm opacity-80">
-                    <span>取得:</span>
-                    <span>2025.8</span>
-                </p>
-            </div>
-            <div class="border border-line rounded-lg p-4 font-semibold pattern-grid-md pattern-color-gray-100">
-                <p class="text-emphasis">ジュニアマイスター特別表彰</p>
-                <p class="text-sm opacity-80">
-                    <span>取得:</span>
-                    <span>2026.3</span>
-                </p>
-            </div>
+            <AchievementItem title="プログラミング能力検定JavaScriptレベル6" date="2025.5" />
+            <AchievementItem title="プログラミング能力検定Pythonレベル6" date="2024.10" />
+            <AchievementItem title="プログラミング能力検定Javaレベル6" date="2025.5" />
+            <AchievementItem title="文章入力スピード認定試験1級" date="2024.11" />
+            <AchievementItem title="情報技術検定1級" date="2025.1" />
+            <AchievementItem title="計算技術検定1級" date="2025.6" />
+            <AchievementItem title="情報セキュリティマネジメント試験" date="2025.5" />
+            <AchievementItem title="基本情報技術者試験" date="2025.8" />
+            <AchievementItem title="数学検定2級" date="2025.8" />
+            <AchievementItem title="ジュニアマイスター特別表彰" date="2026.3" />
         </div>
         <div class="w-full flex flex-col mt-10 p-4 py-10 mx-auto gap-4 bg-sub pattern-grid-md pattern-color-gray-100">
             <span class="relative w-full h-0.5 my-3 bg-line after:content-['2008'] after:font-bold after:text-line after:absolute after:px-2 after:left-1/2 after:-top-3 after:-translate-x-1/2 after:bg-sub"></span>
@@ -316,6 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <ExperienceItem title="プログラミング能力検定Javaレベル6" date="2025.5"></ExperienceItem>
                 <ExperienceItem title="情報セキュリティマネジメント試験" date="2025.5"></ExperienceItem>
                 <ExperienceItem title="計算技術検定1級" date="2025.6"></ExperienceItem>
+                <ExperienceItem title="ジュニアマイスターゴールド" date="2025.7"></ExperienceItem>
                 <ExperienceItem title="数学検定2級" date="2025.8"></ExperienceItem>
                 <ExperienceItem title="基本情報技術者試験" date="2025.8"></ExperienceItem>
                 <ExperienceItem title="スーパーエンジニアプログラミングスクール修了" date="2025.12"></ExperienceItem>
@@ -323,6 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="relative w-full h-0.5 my-3 bg-line after:content-['2026'] after:font-bold after:text-line after:absolute after:px-2 after:left-1/2 after:-top-3 after:-translate-x-1/2 after:bg-sub"></span>
             <div class="px-12 flex flex-col gap-7">
                 <ExperienceItem title="VRChat始める" date="2026.2.16"></ExperienceItem>
+                <ExperienceItem title="ジュニアマイスター特別表彰" date="2026.3"></ExperienceItem>
                 <ExperienceItem title="現在"></ExperienceItem>
                 <!-- <ExperienceItem title="VRChat 1000時間" date="2026.4.9"></ExperienceItem>
                 <ExperienceItem title="VRChat 2000時間" date="2026.5.30">
