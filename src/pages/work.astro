@@ -1,10 +1,67 @@
 ---
 import Layout from "@/layouts/Layout.astro"
+import WorkItem from "@/components/work/WorkItem.astro"
 ---
 
 <Layout title="Work" showLogo={true}>
-    <h1 class="mt-16 w-full text-center flex flex-col">
-        <p class="text-6xl font-light tracking-[1rem]">WORK</p>
-        <span class="text-sm tracking-[1rem]">ワーク</span>
-    </h1>
+    <div class="mt-32 w-full flex flex-col gap-10">
+        <h1 class="text-center flex flex-col">
+            <p class="text-5xl font-light tracking-[1rem]">PRODUCT</p>
+            <span class="text-sm tracking-[1rem]">成果物</span>
+        </h1>
+        <div class="w-full lg:w-240 grid grid-cols-2 mx-auto gap-8">
+            <WorkItem href="" src="/assets/work/licu.png">
+                <h2 class="text-md">Discord Bot</h2>
+                <p class="font-semibold text-lg">Licu</p>
+            </WorkItem>
+        </div>
+    </div>
+    <div class="mt-32 w-full flex flex-col gap-10">
+        <h1 class="text-center flex flex-col">
+            <p class="text-5xl font-light tracking-[1rem]">OSS</p>
+            <span class="text-sm tracking-[1rem]">オープンソース</span>
+        </h1>
+        <div class="w-full lg:w-240 grid grid-cols-2 mx-auto gap-8">
+            <WorkItem href="https://github.com/yuki2825624/Vec3" src="https://opengraph.githubassets.com/4665d072edf42bbf760513e20f4503d8397c9ab0ae2b28e54e607323f0bdbbb1/yuki2825624/Vec3">
+                <h2 class="text-md">GitHub</h2>
+                <p class="font-semibold text-lg">Vec3</p>
+            </WorkItem>
+            <WorkItem href="https://github.com/yuki2825624/Qiita" src="https://opengraph.githubassets.com/1bc79d518d324e3e0e117ed5e8867e472bf218fb31935ba7baab965edba9f199/yuki2825624/Qiita">
+                <h2 class="text-md">GitHub</h2>
+                <p class="font-semibold text-lg">Qiitaの配布コンテンツ</p>
+            </WorkItem>
+        </div>
+    </div>
+    <div class="mt-32 mb-24 w-full flex flex-col gap-10">
+        <h1 class="text-center flex flex-col">
+            <p class="text-5xl font-light tracking-[1rem]">ARTICLE</p>
+            <span class="text-sm tracking-[1rem]">記事</span>
+        </h1>
+        <div class="w-full lg:w-240 grid grid-cols-2 mx-auto gap-8">
+            <WorkItem href="https://qiita.com/yuki2825624/items/8c3ba7184827d453930e" src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjEyMjE5ODY4NiUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1jZDc5YWM0ZmJhODY0NTliOTVmOTE0ZTc4ZjIxM2NmYw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df0c42a099ffb2bdc91274782553f1b0b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JTVCU2NyaXB0QVBJJUU1JThGJTgyJUU4JTgwJTgzJUU2JTlCJUI4JTVEJTIwJUU1JUE3JThCJUUzJTgyJTgxJUU2JTk2JUI5JTIwJTIzMSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWJjMWE4YzU0MzE5NjY2YzA3YmNiNWQyNTIzMWNlMmU5&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5dWtpMjgyNTYyNCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTI2Zjg1MGM3NDdhMWU3MGQ3NTBlMmY0MmE4ODI3OGEw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=7e6dc45450199a2be89761042f1aa6cf">
+                <h2 class="text-md">Qiita</h2>
+                <p class="font-semibold text-lg">[ScriptAPI参考書] 始め方 #1</p>
+            </WorkItem>
+            <WorkItem href="https://qiita.com/yuki2825624/items/2730a3f420f45c7c7eef" src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjEyMjE5ODY4NiUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1jZDc5YWM0ZmJhODY0NTliOTVmOTE0ZTc4ZjIxM2NmYw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df0c42a099ffb2bdc91274782553f1b0b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JTVCU2NyaXB0QVBJJUU1JThGJTgyJUU4JTgwJTgzJUU2JTlCJUI4JTVEJTIwJUU0JUJCJTk1JUU2JUE3JTk4JUUzJTgzJUJCJUU2JTgzJTg1JUU1JUEwJUIxJUUzJTgxJUJFJUUzJTgxJUE4JUUzJTgyJTgxJTIwJTIzMiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWFhYWY0M2YyNWQzYzQ1MWY3NzViZjY2ZTJkMmNjYjhm&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5dWtpMjgyNTYyNCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTI2Zjg1MGM3NDdhMWU3MGQ3NTBlMmY0MmE4ODI3OGEw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=9759b2f5b66b7a7a0e22423c9fda4eb7">
+                <h2 class="text-md">Qiita</h2>
+                <p class="font-semibold text-lg">[ScriptAPI参考書] 仕様・情報まとめ #2</p>
+            </WorkItem>
+            <WorkItem href="https://qiita.com/yuki2825624/items/e62ed10a71d43903bb22" src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjEyMjE5ODY4NiUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1jZDc5YWM0ZmJhODY0NTliOTVmOTE0ZTc4ZjIxM2NmYw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df0c42a099ffb2bdc91274782553f1b0b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JTVCU2NyaXB0QVBJJUU1JThGJTgyJUU4JTgwJTgzJUU2JTlCJUI4JTVEJTIwJUU1JTlGJUJBJUU2JTlDJUFDJUU3JTlBJTg0JUUzJTgxJUFBJUU2JTg5JUIxJUUzJTgxJTg0JTIwJTIzMyZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTYyOTFlYTQ2ZTM1M2UzYzRkZDExMTQxZGNkZDg2Y2E5&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5dWtpMjgyNTYyNCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTI2Zjg1MGM3NDdhMWU3MGQ3NTBlMmY0MmE4ODI3OGEw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=ed33eaf0820bee6af5b406a9879131f8">
+                <h2 class="text-md">Qiita</h2>
+                <p class="font-semibold text-lg">[ScriptAPI参考書] 基本的な扱い #3</p>
+            </WorkItem>
+            <WorkItem href="https://qiita.com/yuki2825624/items/ee561a01ffd3c9fcdf24" src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjEyMjE5ODY4NiUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1jZDc5YWM0ZmJhODY0NTliOTVmOTE0ZTc4ZjIxM2NmYw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df0c42a099ffb2bdc91274782553f1b0b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JTVCU2NyaXB0QVBJJUU1JThGJTgyJUU4JTgwJTgzJUU2JTlCJUI4JTVEJTIwJUUzJTgyJUE0JUUzJTgzJTk5JUUzJTgzJUIzJUUzJTgzJTg4JUUzJTgxJUFFJUU2JTkzJThEJUU0JUJEJTlDJTIwJUU2JUE3JThCJUU5JTgwJUEwJUU3JUI3JUE4JTIwJTIzNCZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWY5ZDRjYmVmNWFjY2NmMDI0NzY4YmI2Y2RjYjYwNzQw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5dWtpMjgyNTYyNCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTI2Zjg1MGM3NDdhMWU3MGQ3NTBlMmY0MmE4ODI3OGEw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=b5ebb472fc9ea92d32a32146093b13b0">
+                <h2 class="text-md">Qiita</h2>
+                <p class="font-semibold text-lg">[ScriptAPI参考書] イベントの操作 構造編 #4</p>
+            </WorkItem>
+            <WorkItem href="https://qiita.com/yuki2825624/items/23a857b785a50a9f9c61" src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjEyMjE5ODY4NiUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1jZDc5YWM0ZmJhODY0NTliOTVmOTE0ZTc4ZjIxM2NmYw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df0c42a099ffb2bdc91274782553f1b0b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JTVCU2NyaXB0QVBJJUU1JThGJTgyJUU4JTgwJTgzJUU2JTlCJUI4JTVEJTIwJUUzJTgyJUE0JUUzJTgzJTk5JUUzJTgzJUIzJUUzJTgzJTg4JUUzJTgxJUFFJUU2JTkzJThEJUU0JUJEJTlDJTIwJUUzJTgyJUEyJUUzJTgzJTk1JUUzJTgyJUJGJUUzJTgzJUJDJUUzJTgyJUE0JUUzJTgzJTk5JUUzJTgzJUIzJUUzJTgzJTg4JUU3JUI3JUE4JTIwJTIzNSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTRhY2JiNWNmYzJmM2JhYzAzZTBlNTU3YWFiNzc3MGIx&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5dWtpMjgyNTYyNCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTI2Zjg1MGM3NDdhMWU3MGQ3NTBlMmY0MmE4ODI3OGEw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=01236d105c7624bbc15b3308d605ff73">
+                <h2 class="text-md">Qiita</h2>
+                <p class="font-semibold text-lg">[ScriptAPI参考書] イベントの操作 アフターイベント編 #5</p>
+            </WorkItem>
+            <WorkItem href="https://qiita.com/yuki2825624/items/cbcec517fc841850d1b6" src="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjEyMjE5ODY4NiUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1jZDc5YWM0ZmJhODY0NTliOTVmOTE0ZTc4ZjIxM2NmYw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df0c42a099ffb2bdc91274782553f1b0b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwJUU1JTkwJTg4JUU2JUEwJUJDJUU0JUJEJTkzJUU5JUE4JTkzJUU4JUE4JTk4JUUzJTgwJTkxJUU5JUFCJTk4JUU2JUEwJUExMiVFNSVCOSVCNCVFNyU5NCU5RiVFMyU4MSU4QzQlRTYlOTclQTUlRTMlODElQTclRTUlOUYlQkElRTYlOUMlQUMlRTYlODMlODUlRTUlQTAlQjElRTYlOEElODAlRTglQTElOTMlRTglODAlODUlRTglQTklQTYlRTklQTglOTMlRTMlODElQUIlRTUlOTAlODglRTYlQTAlQkMlRTMlODElOTclRTMlODElOUYlRTglQTklQjEmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1kNWQxYjc1MDQ5MmYzZGIwNjVhOTIzZDdhNTA0NzI0Mw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5dWtpMjgyNTYyNCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTI2Zjg1MGM3NDdhMWU3MGQ3NTBlMmY0MmE4ODI3OGEw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=8ed5921f9b57006ab528b992fc8119ab">
+                <h2 class="text-md">Qiita</h2>
+                <p class="font-semibold text-lg">【合格体験記】高校2年生が4日で基本情報技術者試験に合格した話</p>
+            </WorkItem>
+        </div>
+    </div>
 </Layout>
