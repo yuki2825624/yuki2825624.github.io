@@ -1,0 +1,16 @@
+---
+export interface Props {
+    title: string;
+    date: string;
+}
+
+const { title, date } = Astro.props;
+---
+
+<div class="border border-line rounded-lg p-4 font-semibold bg-sub pattern-grid-md pattern-color-gray-100">
+    <p class="text-emphasis">{title}</p>
+    <p class="text-sm opacity-80">
+        <span>取得:</span>
+        <span>{date}</span>
+    </p>
+</div>
